@@ -8,7 +8,8 @@ export function ContactForm({ accessKey }: { accessKey: string }) {
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const form = new FormData(event.currentTarget)
+    const formElement = event.currentTarget
+    const form = new FormData(formElement)
     if (String(form.get('botcheck') ?? '')) return
     if (!accessKey) {
       const name = String(form.get('name') ?? '')
@@ -36,14 +37,15 @@ export function ContactForm({ accessKey }: { accessKey: string }) {
           botcheck: form.get('botcheck') ?? '',
         }),
       })
-      const data = (await response.json()) as { success?: boolean; message?: string }
-      if (!response.ok || !data.success) {
+      const data = (await response.json().catch(() => ({}))) as { success?: boolean | string; message?: string }
+      const rejected = data.success === false || data.success === 'false'
+      if (!response.ok || rejected) {
         setStatus('error')
         setError(data.message || 'Nie udało się wysłać wiadomości. Zadzwoń do salonu.')
         return
       }
+      formElement.reset()
       setStatus('sent')
-      event.currentTarget.reset()
     } catch {
       setStatus('error')
       setError('Nie udało się wysłać wiadomości. Sprawdź internet albo zadzwoń do salonu.')
