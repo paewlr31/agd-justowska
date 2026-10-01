@@ -1,0 +1,2199 @@
+{
+  "manufacturers": [
+    {
+      "slug": "aeg",
+      "name": "AEG",
+      "categories": [
+        "Piekarnik",
+        "Mikrofala",
+        "Płyta indukcyjna",
+        "Okap",
+        "Ekspres ciśnieniowy",
+        "Lodówka",
+        "Winiarka",
+        "Zmywarka",
+        "Pralka",
+        "Suszarka bębnowa",
+        "Pralko-suszarka"
+      ],
+      "sortOrder": 0
+    },
+    {
+      "slug": "asko",
+      "name": "ASKO",
+      "categories": [
+        "Piekarnik",
+        "Piekarnik z mikrofalą",
+        "Mikrofala",
+        "Płyta gazowa",
+        "Płyta indukcyjna",
+        "Zmywarka",
+        "Lodówka",
+        "Pralka",
+        "Suszarka bębnowa",
+        "Ekspres ciśnieniowy"
+      ],
+      "sortOrder": 1
+    },
+    {
+      "slug": "bora",
+      "name": "BORA",
+      "categories": [],
+      "sortOrder": 2
+    },
+    {
+      "slug": "ciarko-design",
+      "name": "CIARKO DESIGN",
+      "categories": [
+        "Okap przyścienny",
+        "Okap podszafkowy",
+        "Okap wyspowy",
+        "Okap blatowy"
+      ],
+      "sortOrder": 3
+    },
+    {
+      "slug": "cosentino",
+      "name": "COSENTINO",
+      "categories": [],
+      "sortOrder": 4
+    },
+    {
+      "slug": "electrolux",
+      "name": "ELECTROLUX",
+      "categories": [
+        "Płyta indukcyjna z wyciągiem",
+        "Płyta indukcyjna",
+        "Płyta gazowa",
+        "Piekarnik",
+        "Mikrofala",
+        "Ekspres ciśnieniowy",
+        "Lodówka",
+        "Zamrażarka",
+        "Okap",
+        "Zmywarka",
+        "Pralka",
+        "Suszarka",
+        "Pralko-suszarka"
+      ],
+      "sortOrder": 5
+    },
+    {
+      "slug": "elica",
+      "name": "ELICA",
+      "categories": [],
+      "sortOrder": 6
+    },
+    {
+      "slug": "franke",
+      "name": "FRANKE",
+      "categories": [],
+      "sortOrder": 7
+    },
+    {
+      "slug": "falmec",
+      "name": "FALMEC",
+      "categories": [],
+      "sortOrder": 8
+    },
+    {
+      "slug": "florim",
+      "name": "FLORIM",
+      "categories": [],
+      "sortOrder": 9
+    },
+    {
+      "slug": "kernau",
+      "name": "KERNAU",
+      "categories": [],
+      "sortOrder": 10
+    },
+    {
+      "slug": "miele",
+      "name": "MIELE",
+      "categories": [],
+      "sortOrder": 11
+    },
+    {
+      "slug": "liebherr",
+      "name": "LIEBHERR",
+      "categories": [
+        "Lodówka do zabudowy",
+        "Chłodziarka do zabudowy",
+        "Zamrażarka do zabudowy"
+      ],
+      "sortOrder": 12
+    },
+    {
+      "slug": "nordberg",
+      "name": "NORDBERG",
+      "categories": [],
+      "sortOrder": 13
+    },
+    {
+      "slug": "reginox",
+      "name": "REGINOX",
+      "categories": [],
+      "sortOrder": 14
+    },
+    {
+      "slug": "smeg",
+      "name": "SMEG",
+      "categories": [
+        "Piekarnik",
+        "Mikrofala",
+        "Płyta gazowa",
+        "Płyta indukcyjna",
+        "Ekspres ciśnieniowy",
+        "Zmywarka do zabudowy",
+        "Blast chiller",
+        "Lodówka wolnostojąca"
+      ],
+      "sortOrder": 15
+    },
+    {
+      "slug": "schock",
+      "name": "SCHOCK",
+      "categories": [
+        "Zlewozmywak granitowy",
+        "Bateria z wyciąganą wylewką",
+        "Bateria bez wyciąganej wylewki"
+      ],
+      "sortOrder": 16
+    },
+    {
+      "slug": "siemens",
+      "name": "SIEMENS",
+      "categories": [],
+      "sortOrder": 17
+    },
+    {
+      "slug": "quooker",
+      "name": "QUOOKER",
+      "categories": [],
+      "sortOrder": 18
+    }
+  ],
+  "products": [
+    {
+      "id": "aeg-nbp9s831ab",
+      "brand": "AEG",
+      "model": "NBP9S831AB",
+      "category": "Piekarnik",
+      "price": 6999,
+      "description": "Piekarnik parowy ProAssist 9000 SteamPro para NBP9S831AB",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nbt9p83iat",
+      "brand": "AEG",
+      "model": "NBT9P83IAT",
+      "category": "Piekarnik",
+      "price": 5999,
+      "description": "Piekarnik ProAssist 9000 pyroliza NBT9P83IAT Piekarnik",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nbr7p731sb",
+      "brand": "AEG",
+      "model": "NBR7P731SB",
+      "category": "Piekarnik",
+      "price": 4499,
+      "description": "Piekarnik parowy MealAssist 7000 SteamCrisp pyroliza NBR7P731SB",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nbx7p63ksb",
+      "brand": "AEG",
+      "model": "NBX7P63KSB",
+      "category": "Piekarnik",
+      "price": 3699,
+      "description": "Piekarnik MealAssist 7000 PizzaExpert pyroliza NBX7P63KSB",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nkm7n721t",
+      "brand": "AEG",
+      "model": "NKM7N721T",
+      "category": "Mikrofala",
+      "price": 3499,
+      "description": "Kompaktowa mikrofala do zabudowy MealAssist 7000 mikrofale emalia NKM7N721T",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nkm7n721b",
+      "brand": "AEG",
+      "model": "NKM7N721B",
+      "category": "Mikrofala",
+      "price": 3199,
+      "description": "Kompaktowa mikrofala do zabudowy MealAssist 7000 mikrofale emalia NKM7N721B",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-ncp84c01az",
+      "brand": "AEG",
+      "model": "NCP84C01AZ",
+      "category": "Płyta indukcyjna",
+      "price": 8999,
+      "description": "Płyta indukcyjna z wyciągiem (COMBO) 6000 Bridge eXtractor SaphirMatt® 83 cm NCP84C01AZ",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-th85ih50ib",
+      "brand": "AEG",
+      "model": "TH85IH50IB",
+      "category": "Płyta indukcyjna",
+      "price": 6499,
+      "description": "Płyta indukcyjna SensePro 9000 SLIM-FIT 80 cm TH85IH50IB",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-tk85im00fb",
+      "brand": "AEG",
+      "model": "TK85IM00FB",
+      "category": "Płyta indukcyjna",
+      "price": 4999,
+      "description": "Płyta indukcyjna 6000 MultipleBridge SLIM-FIT 80 cm TK85IM00FB",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nik85m00az",
+      "brand": "AEG",
+      "model": "NIK85M00AZ",
+      "category": "Płyta indukcyjna",
+      "price": 4699,
+      "description": "Płyta indukcyjna 6000 MultipleBridge SaphirMatt® SLIM-FIT 80 cm NIK85M00AZ",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-ti64ib10iz",
+      "brand": "AEG",
+      "model": "TI64IB10IZ",
+      "category": "Płyta indukcyjna",
+      "price": 3299,
+      "description": "Płyta indukcyjna SenseBoil 7000 SaphirMatt® SLIM-FIT 60 cm TI64IB10IZ",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-to74ib00ib",
+      "brand": "AEG",
+      "model": "TO74IB00IB",
+      "category": "Płyta indukcyjna",
+      "price": 2899,
+      "description": "Płyta indukcyjna Bridge 6000 SLIM-FIT 70 cm TO74IB00IB",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-to64ib00ib",
+      "brand": "AEG",
+      "model": "TO64IB00IB",
+      "category": "Płyta indukcyjna",
+      "price": 2199,
+      "description": "Płyta indukcyjna Bridge 6000 SLIM-FIT 60 cm TO64IB00IB",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-ndb6791hb",
+      "brand": "AEG",
+      "model": "NDB6791HB",
+      "category": "Okap",
+      "price": 1699,
+      "description": "Okap kominowy 6000 Hob2Hood® 90 cm NDB6791HB",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-ndb6761hb",
+      "brand": "AEG",
+      "model": "NDB6761HB",
+      "category": "Okap",
+      "price": 1599,
+      "description": "Okap kominowy 6000 Hob2Hood® 60 cm NDB6761HB Okap kominowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nmb6g261tb",
+      "brand": "AEG",
+      "model": "NMB6G261TB",
+      "category": "Mikrofala",
+      "price": 2199,
+      "description": "Kuchenka mikrofalowa 6000 NMB6G261TB Kuchenka mikrofalowa",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-os5gm251eb",
+      "brand": "AEG",
+      "model": "OS5GM251EB",
+      "category": "Mikrofala",
+      "price": 1749,
+      "description": "Kuchenka mikrofalowa 5000 OS5GM251EB",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nkc9n8t",
+      "brand": "AEG",
+      "model": "NKC9N8T",
+      "category": "Ekspres ciśnieniowy",
+      "price": 11999,
+      "description": "Ekspres ciśnieniowy 9000 NKC9N8T Ekspres do kawy do zabudowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nkc8n7b",
+      "brand": "AEG",
+      "model": "NKC8N7B",
+      "category": "Ekspres ciśnieniowy",
+      "price": 9499,
+      "description": "Ekspres ciśnieniowy 8000 NKC8N7B Ekspres do kawy do zabudowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-tk9cs181dc",
+      "brand": "AEG",
+      "model": "TK9CS181DC",
+      "category": "Lodówka",
+      "price": 4999,
+      "description": "Chłodziarka do zabudowy 9000 TK9CS181DC",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nsc8t751ds",
+      "brand": "AEG",
+      "model": "NSC8T751DS",
+      "category": "Lodówka",
+      "price": 5799,
+      "description": "Lodówka Cooling 360° 8000 188,4 cm NSC8T751DS",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nsw8d826gt",
+      "brand": "AEG",
+      "model": "NSW8D826GT",
+      "category": "Winiarka",
+      "price": 8999,
+      "description": "Chłodziarka do wina do zabudowy 8000 81,8 cm NSW8D826GT",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-nsw8s823gt",
+      "brand": "AEG",
+      "model": "NSW8S823GT",
+      "category": "Winiarka",
+      "price": 5499,
+      "description": "Chłodziarka do wina do zabudowy 7000 81,8 cm NSW8S823GT",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-ng97ix50pk",
+      "brand": "AEG",
+      "model": "NG97IX50PK",
+      "category": "Zmywarka",
+      "price": 6099,
+      "description": "Zmywarka do zabudowy 60 cm NG97IX50PK 9000 XXL SmartSelect zużycie wody 8,4 l NG97IX50PK",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-ng92ia20tk",
+      "brand": "AEG",
+      "model": "NG92IA20TK",
+      "category": "Zmywarka",
+      "price": 4599,
+      "description": "Zmywarka do zabudowy 60 cm NG92IA20TK 9000 SmartSelect zużycie wody 8,4 l NG92IA20TK",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-ng62ic20sk",
+      "brand": "AEG",
+      "model": "NG62IC20SK",
+      "category": "Zmywarka",
+      "price": 2799,
+      "description": "Zmywarka do zabudowy 60 cm NG62IC20SK 6000 SmartSelect NG62IC20SK",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-lfr83966op",
+      "brand": "AEG",
+      "model": "LFR83966OP",
+      "category": "Pralka",
+      "price": 5199,
+      "description": "Pralka 8000 PowerCare UniversalDose 9 kg LFR83966OP",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-tr9396cp",
+      "brand": "AEG",
+      "model": "TR9396CP",
+      "category": "Suszarka bębnowa",
+      "price": 5299,
+      "description": "Suszarka z pompą ciepła 9000 AbsoluteCare® Plus 9 kg TR9396CP",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "aeg-lwr85165op",
+      "brand": "AEG",
+      "model": "LWR85165OP",
+      "category": "Pralko-suszarka",
+      "price": 5599,
+      "description": "Pralko-suszarka 8000 PowerCare UniversalDose 10 kg LWR85165OP",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kcc84450cz",
+      "brand": "ELECTROLUX",
+      "model": "KCC84450CZ",
+      "category": "Płyta indukcyjna z wyciągiem",
+      "price": 8499,
+      "description": "Płyta indukcyjna SaphirMatt® 600 80cm z okapem | Electrolux",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-ecc83410ct",
+      "brand": "ELECTROLUX",
+      "model": "ECC83410CT",
+      "category": "Płyta indukcyjna z wyciągiem",
+      "price": 6499,
+      "description": "Płyta indukcyjna z wyciągiem (COMBO) eXtractor SaphirMatt® SE 80 cm ECC83410CT",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-eis87553iz",
+      "brand": "ELECTROLUX",
+      "model": "EIS87553IZ",
+      "category": "Płyta indukcyjna",
+      "price": 5299,
+      "description": "Płyta indukcyjna SenseBoil® & Fry 800 SaphirMatt® 80 cm EIS87553IZ",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kiv84550i",
+      "brand": "ELECTROLUX",
+      "model": "KIV84550I",
+      "category": "Płyta indukcyjna",
+      "price": 4299,
+      "description": "Płyta indukcyjna MultipleBridge 600 80 cm KIV84550I",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kiv83443ct",
+      "brand": "ELECTROLUX",
+      "model": "KIV83443CT",
+      "category": "Płyta indukcyjna",
+      "price": 3499,
+      "description": "Płyta indukcyjna Bridge 600 SaphirMatt® SE 80 cm KIV83443CT",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kis67453iz",
+      "brand": "ELECTROLUX",
+      "model": "KIS67453IZ",
+      "category": "Płyta indukcyjna",
+      "price": 3499,
+      "description": "Płyta indukcyjna SenseBoil® & Fry 800 SaphirMatt® 60 cm KIS67453IZ",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kiv63449it",
+      "brand": "ELECTROLUX",
+      "model": "KIV63449IT",
+      "category": "Płyta indukcyjna",
+      "price": 2499,
+      "description": "Płyta indukcyjna Bridge 600 SaphirMatt® SE 60 cm KIV63449IT",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kir60433",
+      "brand": "ELECTROLUX",
+      "model": "KIR60433",
+      "category": "Płyta indukcyjna",
+      "price": 1599,
+      "description": "Płyta indukcyjna Induction 500 60 cm KIR60433",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kgg753723l",
+      "brand": "ELECTROLUX",
+      "model": "KGG753723L",
+      "category": "Płyta gazowa",
+      "price": 1899,
+      "description": "Płyta gazowa 700 Gas on Glass 75 cm KGG753723L Płyta gazowa",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kgg643723l",
+      "brand": "ELECTROLUX",
+      "model": "KGG643723L",
+      "category": "Płyta gazowa",
+      "price": 1699,
+      "description": "Płyta gazowa 700 Gas on Glass 60 cm KGG643723L Płyta gazowa",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-koaas3st",
+      "brand": "ELECTROLUX",
+      "model": "KOAAS3ST",
+      "category": "Piekarnik",
+      "price": 7299,
+      "description": "Piekarnik parowy 900 ProAssist z SteamPro KOAAS3ST Piekarnik",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-lob9s3sz",
+      "brand": "ELECTROLUX",
+      "model": "LOB9S3SZ",
+      "category": "Piekarnik",
+      "price": 5499,
+      "description": "Piekarnik parowy 800 MealAssist z SteamPro LOB9S3SZ",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kocbp39wx",
+      "brand": "ELECTROLUX",
+      "model": "KOCBP39WX",
+      "category": "Piekarnik",
+      "price": 3999,
+      "description": "Piekarnik SteamCrisp 700 pyroliza KOCBP39WX",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kobbs38z",
+      "brand": "ELECTROLUX",
+      "model": "KOBBS38Z",
+      "category": "Piekarnik",
+      "price": 3499,
+      "description": "Piekarnik parowy 800 MealAssist z SteamPro KOBBS38Z",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kocdh76z",
+      "brand": "ELECTROLUX",
+      "model": "KOCDH76Z",
+      "category": "Piekarnik",
+      "price": 2899,
+      "description": "Piekarnik SteamCrisp 700 KOCDH76Z Piekarnik",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kod8c39z",
+      "brand": "ELECTROLUX",
+      "model": "KOD8C39Z",
+      "category": "Piekarnik",
+      "price": 2699,
+      "description": "Piekarnik parowy 500 SurroundCook SteamBake kataliza KOD8C39Z",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kofgh70tk",
+      "brand": "ELECTROLUX",
+      "model": "KOFGH70TK",
+      "category": "Piekarnik",
+      "price": 1699,
+      "description": "Piekarnik SurroundCook 600 KOFGH70TK Piekarnik",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kvm9e2xt",
+      "brand": "ELECTROLUX",
+      "model": "KVM9E2XT",
+      "category": "Mikrofala",
+      "price": 3299,
+      "description": "Kompaktowa mikrofala do zabudowy 700 MealAssist Microwave KVM9E2XT",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-lvm9e2xz",
+      "brand": "ELECTROLUX",
+      "model": "LVM9E2XZ",
+      "category": "Mikrofala",
+      "price": 2899,
+      "description": "Kompaktowa mikrofala do zabudowy 700 MealAssist Microwave LVM9E2XZ",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-lvm8e08z",
+      "brand": "ELECTROLUX",
+      "model": "LVM8E08Z",
+      "category": "Mikrofala",
+      "price": 2799,
+      "description": "Kompaktowa mikrofala do zabudowy 700 MealAssist Microwave LVM8E08Z",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kbc95t",
+      "brand": "ELECTROLUX",
+      "model": "KBC95T",
+      "category": "Ekspres ciśnieniowy",
+      "price": 9999,
+      "description": "Ekspres ciśnieniowy 800 KBC95T Ekspres do kawy do zabudowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kbc85x",
+      "brand": "ELECTROLUX",
+      "model": "KBC85X",
+      "category": "Ekspres ciśnieniowy",
+      "price": 9699,
+      "description": "Ciśnieniowy ekspres do kawy do zabudowy KBC85X | Electrolux",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kms4253tbk",
+      "brand": "ELECTROLUX",
+      "model": "KMS4253TBK",
+      "category": "Mikrofala",
+      "price": 1549,
+      "description": "Kuchenka mikrofalowa 500 KMS4253TBK Kuchenka mikrofalowa",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kmfe172tex",
+      "brand": "ELECTROLUX",
+      "model": "KMFE172TEX",
+      "category": "Mikrofala",
+      "price": 2299,
+      "description": "Kuchenka mikrofalowa 800 KMFE172TEX | Electrolux",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-eng8mc19s",
+      "brand": "ELECTROLUX",
+      "model": "ENG8MC19S",
+      "category": "Lodówka",
+      "price": 4799,
+      "description": "Lodówka 800 Cooling 360°C MultiSpace CustomFlex 188,4 cm ENG8MC19S",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-e8mngc18s",
+      "brand": "ELECTROLUX",
+      "model": "E8MNGC18S",
+      "category": "Lodówka",
+      "price": 4099,
+      "description": "Lodówka 800 Cooling 360°C MultiSpace 177,2 cm E8MNGC18S",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-ena7cd18s",
+      "brand": "ELECTROLUX",
+      "model": "ENA7CD18S",
+      "category": "Lodówka",
+      "price": 2999,
+      "description": "Lodówka 700 GreenZone 177,2 cm ENA7CD18S Lodówka do zabudowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-ens3se18s",
+      "brand": "ELECTROLUX",
+      "model": "ENS3SE18S",
+      "category": "Lodówka",
+      "price": 1999,
+      "description": "Lodówka 300 176.3 cm ENS3SE18S Lodówka do zabudowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kra7de18s",
+      "brand": "ELECTROLUX",
+      "model": "KRA7DE18S",
+      "category": "Lodówka",
+      "price": 3799,
+      "description": "Chłodziarka do zabudowy 700 KRA7DE18S",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kua7ne18s",
+      "brand": "ELECTROLUX",
+      "model": "KUA7NE18S",
+      "category": "Zamrażarka",
+      "price": 4099,
+      "description": "Zamrażarka szafkowa 700 KUA7NE18S Zamrażarka do zabudowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-lfg828k",
+      "brand": "ELECTROLUX",
+      "model": "LFG828K",
+      "category": "Okap",
+      "price": 2299,
+      "description": "Okap zintegrowany 900 AutoSense 80 cm LFG828K",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-lfg825k",
+      "brand": "ELECTROLUX",
+      "model": "LFG825K",
+      "category": "Okap",
+      "price": 2099,
+      "description": "Okap zintegrowany 900 54 cm LFG825K Okap do zabudowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kl97x500p",
+      "brand": "ELECTROLUX",
+      "model": "KL97X500P",
+      "category": "Zmywarka",
+      "price": 5999,
+      "description": "Zmywarka do zabudowy 60 cm KL97X500P 900 MaxiSpace QuickSelect 2.0 zużycie wody 8,4 l KL97X500P",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kl87x200t",
+      "brand": "ELECTROLUX",
+      "model": "KL87X200T",
+      "category": "Zmywarka",
+      "price": 4699,
+      "description": "Zmywarka do zabudowy 60 cm KL87X200T 800 MaxiSpace QuickSelect 2.0 zużycie wody 8,4 l KL87X200T",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kl82a505s",
+      "brand": "ELECTROLUX",
+      "model": "KL82A505S",
+      "category": "Zmywarka",
+      "price": 4199,
+      "description": "Zmywarka do zabudowy 60 cm KL82A505S 800 QuickSelect 2.0 zużycie wody 8,4 l KL82A505S",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kl82b200s",
+      "brand": "ELECTROLUX",
+      "model": "KL82B200S",
+      "category": "Zmywarka",
+      "price": 3299,
+      "description": "Zmywarka do zabudowy 60 cm KL82B200S 800 QuickSelect 2.0 zużycie wody 8,4 l KL82B200S",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kl62b200t",
+      "brand": "ELECTROLUX",
+      "model": "KL62B200T",
+      "category": "Zmywarka",
+      "price": 2999,
+      "description": "Zmywarka do zabudowy 60 cm KL62B200T 600 QuickSelect 2.0 KL62B200T",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-e62lb100s",
+      "brand": "ELECTROLUX",
+      "model": "E62LB100S",
+      "category": "Zmywarka",
+      "price": 2599,
+      "description": "Zmywarka do zabudowy 60 cm E62LB100S 600 QuickSelect 2.0 E62LB100S",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-kemb3301l",
+      "brand": "ELECTROLUX",
+      "model": "KEMB3301L",
+      "category": "Zmywarka",
+      "price": 2899,
+      "description": "Zmywarka do zabudowy 45 cm KEMB3301L 700 QuickSelect KEMB3301L",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-keac3200l",
+      "brand": "ELECTROLUX",
+      "model": "KEAC3200L",
+      "category": "Zmywarka",
+      "price": 2349,
+      "description": "Zmywarka do zabudowy 45 cm KEAC3200L 300 QuickSelect KEAC3200L",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-ew8f5417sacp",
+      "brand": "ELECTROLUX",
+      "model": "EW8F5417SACP",
+      "category": "Pralka",
+      "price": 3899,
+      "description": "Pralka UltraCare 800 AutoDose 10 kg EW8F5417SACP",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-ew7d597ucp",
+      "brand": "ELECTROLUX",
+      "model": "EW7D597UCP",
+      "category": "Suszarka",
+      "price": 4599,
+      "description": "Suszarka z pompą ciepła 700 DelicateCare 9 kg EW7D597UCP",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-ew9wn161bce",
+      "brand": "ELECTROLUX",
+      "model": "EW9WN161BCE",
+      "category": "Pralko-suszarka",
+      "price": 5499,
+      "description": "Pralko-suszarka DelicateCare 900 10kg EW9WN161BCE | Electrolux",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "electrolux-ew7w5607ap",
+      "brand": "ELECTROLUX",
+      "model": "EW7W5607AP",
+      "category": "Pralko-suszarka",
+      "price": 4499,
+      "description": "Pralko-suszarka 700 SteamCare AutoDose 11 kg EW7W5607AP",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-otp26bgh",
+      "brand": "ASKO",
+      "model": "OTP26BGH",
+      "category": "Piekarnik",
+      "price": 3499,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-ocm26bgh",
+      "brand": "ASKO",
+      "model": "OCM26BGH",
+      "category": "Piekarnik z mikrofalą",
+      "price": 4499,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-ocs56bgh",
+      "brand": "ASKO",
+      "model": "OCS56BGH",
+      "category": "Piekarnik",
+      "price": 6999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-otp66gsh",
+      "brand": "ASKO",
+      "model": "OTP66GSH",
+      "category": "Piekarnik",
+      "price": 7999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-ocsm66gsh",
+      "brand": "ASKO",
+      "model": "OCSM66GSH",
+      "category": "Piekarnik",
+      "price": 12999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-om64gsh",
+      "brand": "ASKO",
+      "model": "OM64GSH",
+      "category": "Mikrofala",
+      "price": 6799,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-om54bgh",
+      "brand": "ASKO",
+      "model": "OM54BGH",
+      "category": "Mikrofala",
+      "price": 5499,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-om24bgh",
+      "brand": "ASKO",
+      "model": "OM24BGH",
+      "category": "Mikrofala",
+      "price": 3499,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-hg1666ab",
+      "brand": "ASKO",
+      "model": "HG1666AB",
+      "category": "Płyta gazowa",
+      "price": 2999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-hi2643fbg1",
+      "brand": "ASKO",
+      "model": "HI2643FBG1",
+      "category": "Płyta indukcyjna",
+      "price": 2999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-hi5643fbg1",
+      "brand": "ASKO",
+      "model": "HI5643FBG1",
+      "category": "Płyta indukcyjna",
+      "price": 4499,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-hi5954fbg1",
+      "brand": "ASKO",
+      "model": "HI5954FBG1",
+      "category": "Płyta indukcyjna",
+      "price": 6999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-hid865mfc",
+      "brand": "ASKO",
+      "model": "HID865MFC",
+      "category": "Płyta indukcyjna",
+      "price": 7999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-hid956mfc",
+      "brand": "ASKO",
+      "model": "HID956MFC",
+      "category": "Płyta indukcyjna",
+      "price": 12999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-dfi544b",
+      "brand": "ASKO",
+      "model": "DFI544B",
+      "category": "Zmywarka",
+      "price": 3599,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-dfi545v",
+      "brand": "ASKO",
+      "model": "DFI545V",
+      "category": "Zmywarka",
+      "price": 4999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-dfi748mu",
+      "brand": "ASKO",
+      "model": "DFI748MU",
+      "category": "Zmywarka",
+      "price": 7999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-dfi778uxxl",
+      "brand": "ASKO",
+      "model": "DFI778UXXL",
+      "category": "Zmywarka",
+      "price": 9299,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-rbc276snd1",
+      "brand": "ASKO",
+      "model": "RBC276SND1",
+      "category": "Lodówka",
+      "price": 3999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-rbc576dnc1",
+      "brand": "ASKO",
+      "model": "RBC576DNC1",
+      "category": "Lodówka",
+      "price": 8999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-rbc297snd1",
+      "brand": "ASKO",
+      "model": "RBC297SND1",
+      "category": "Lodówka",
+      "price": 6499,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-rbc597snd1",
+      "brand": "ASKO",
+      "model": "RBC597SND1",
+      "category": "Lodówka",
+      "price": 11999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-w3096rw",
+      "brand": "ASKO",
+      "model": "W3096RW",
+      "category": "Pralka",
+      "price": 5999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-w5096rt",
+      "brand": "ASKO",
+      "model": "W5096RT",
+      "category": "Pralka",
+      "price": 8999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-t309hcw",
+      "brand": "ASKO",
+      "model": "T309HCW",
+      "category": "Suszarka bębnowa",
+      "price": 5999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-t509hrt",
+      "brand": "ASKO",
+      "model": "T509HRT",
+      "category": "Suszarka bębnowa",
+      "price": 8999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-cm8478gg",
+      "brand": "ASKO",
+      "model": "CM8478GG",
+      "category": "Ekspres ciśnieniowy",
+      "price": 13999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "asko-cmb54bg",
+      "brand": "ASKO",
+      "model": "CMB54BG",
+      "category": "Ekspres ciśnieniowy",
+      "price": 10999,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-fluo",
+      "brand": "CIARKO DESIGN",
+      "model": "FLUO",
+      "category": "Okap przyścienny",
+      "price": 7790,
+      "description": "Fluo",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-icon",
+      "brand": "CIARKO DESIGN",
+      "model": "ICON",
+      "category": "Okap przyścienny",
+      "price": 7290,
+      "description": "Icon",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-tubus",
+      "brand": "CIARKO DESIGN",
+      "model": "TUBUS",
+      "category": "Okap przyścienny",
+      "price": 3490,
+      "description": "TUBUS okap przyścienny",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-mono",
+      "brand": "CIARKO DESIGN",
+      "model": "MONO",
+      "category": "Okap przyścienny",
+      "price": 4990,
+      "description": "Mono",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-monogram",
+      "brand": "CIARKO DESIGN",
+      "model": "MONOGRAM",
+      "category": "Okap przyścienny",
+      "price": 5590,
+      "description": "Monogram okap wyspowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-simple",
+      "brand": "CIARKO DESIGN",
+      "model": "SIMPLE",
+      "category": "Okap przyścienny",
+      "price": 4890,
+      "description": "Simple",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-trio",
+      "brand": "CIARKO DESIGN",
+      "model": "TRIO",
+      "category": "Okap przyścienny",
+      "price": 3390,
+      "description": "Trio",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-t-light",
+      "brand": "CIARKO DESIGN",
+      "model": "T-LIGHT",
+      "category": "Okap przyścienny",
+      "price": 3590,
+      "description": "T-Light",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-minimal-5",
+      "brand": "CIARKO DESIGN",
+      "model": "MINIMAL 5",
+      "category": "Okap przyścienny",
+      "price": 3790,
+      "description": "Minimal 5",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-roto",
+      "brand": "CIARKO DESIGN",
+      "model": "ROTO",
+      "category": "Okap przyścienny",
+      "price": 5590,
+      "description": "Roto",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-duo",
+      "brand": "CIARKO DESIGN",
+      "model": "DUO",
+      "category": "Okap podszafkowy",
+      "price": 2090,
+      "description": "Duo okap podszafkowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-luno",
+      "brand": "CIARKO DESIGN",
+      "model": "LUNO",
+      "category": "Okap podszafkowy",
+      "price": 1690,
+      "description": "Luno okap podszafkowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-uno",
+      "brand": "CIARKO DESIGN",
+      "model": "UNO",
+      "category": "Okap podszafkowy",
+      "price": 1990,
+      "description": "Uno okap podszafkowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-joker-duo",
+      "brand": "CIARKO DESIGN",
+      "model": "JOKER DUO",
+      "category": "Okap podszafkowy",
+      "price": 2290,
+      "description": "Joker Duo",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-minimal-7",
+      "brand": "CIARKO DESIGN",
+      "model": "MINIMAL 7",
+      "category": "Okap podszafkowy",
+      "price": 2490,
+      "description": "Minimal 7 okap podszafkowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-miss-w",
+      "brand": "CIARKO DESIGN",
+      "model": "MISS W",
+      "category": "Okap wyspowy",
+      "price": 5190,
+      "description": "Miss W okap wyspowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-minimal-1",
+      "brand": "CIARKO DESIGN",
+      "model": "MINIMAL 1",
+      "category": "Okap wyspowy",
+      "price": 10290,
+      "description": "Minimal 1 okap wyspowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-piu-light",
+      "brand": "CIARKO DESIGN",
+      "model": "PIU LIGHT",
+      "category": "Okap wyspowy",
+      "price": 7790,
+      "description": "Piu Light",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-cube-w",
+      "brand": "CIARKO DESIGN",
+      "model": "CUBE W",
+      "category": "Okap wyspowy",
+      "price": 5490,
+      "description": "Cube W",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-mono-w",
+      "brand": "CIARKO DESIGN",
+      "model": "MONO W",
+      "category": "Okap wyspowy",
+      "price": 6690,
+      "description": "Mono W",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-tubus-w",
+      "brand": "CIARKO DESIGN",
+      "model": "TUBUS W",
+      "category": "Okap wyspowy",
+      "price": 4790,
+      "description": "TUBUS W okap wyspowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-monogram-w",
+      "brand": "CIARKO DESIGN",
+      "model": "MONOGRAM W",
+      "category": "Okap wyspowy",
+      "price": 6590,
+      "description": "Monogram W",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-fluo-w",
+      "brand": "CIARKO DESIGN",
+      "model": "FLUO W",
+      "category": "Okap wyspowy",
+      "price": 8790,
+      "description": "Fluo W",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "ciarko-design-monodraft",
+      "brand": "CIARKO DESIGN",
+      "model": "MONODRAFT",
+      "category": "Okap blatowy",
+      "price": 6790,
+      "description": "Moondraft okap blatowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-ikgs51ve03",
+      "brand": "LIEBHERR",
+      "model": "IKGS51Ve03",
+      "category": "Lodówka do zabudowy",
+      "price": 4198,
+      "description": "IKGS 51Ve03 Pure EasyFresh Zintegrowana chłodziarko-zamrażarka z systemem EasyFresh i SmartFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-icbsd5122",
+      "brand": "LIEBHERR",
+      "model": "ICBSd5122",
+      "category": "Lodówka do zabudowy",
+      "price": 5699,
+      "description": "ICBSd 5122 Plus BioFresh Chłodziarko-zamrażarka z funkcją BioFresh i SmartFrost do zabudowy - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-sicndi5153",
+      "brand": "LIEBHERR",
+      "model": "SICNdi5153",
+      "category": "Lodówka do zabudowy",
+      "price": 8999,
+      "description": "SICNdi 5153 Prime NoFrost Zintegrowana chłodziarko-zamrażarka z systemem EasyFresh i NoFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-icnsd5123",
+      "brand": "LIEBHERR",
+      "model": "ICNSd5123",
+      "category": "Lodówka do zabudowy",
+      "price": 6499,
+      "description": "ICNSd 5123 Plus NoFrost Zintegrowana chłodziarko-zamrażarka z systemem EasyFresh i NoFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-icnbsci5173",
+      "brand": "LIEBHERR",
+      "model": "ICNbsci5173",
+      "category": "Lodówka do zabudowy",
+      "price": 11999,
+      "description": "ICNbsci 5173 Peak NoFrost Zintegrowana chłodziarko-zamrażarka z systemem EasyFresh i NoFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-icbnbsci5173",
+      "brand": "LIEBHERR",
+      "model": "ICBNbsci5173",
+      "category": "Lodówka do zabudowy",
+      "price": 14999,
+      "description": "ICBNbsci 5173 Peak BioFresh NoFrost Chłodziarko-zamrażarka do zintegrowanej zabudowy z technologią BioFresh Professional i NoFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-ecbne8872",
+      "brand": "LIEBHERR",
+      "model": "ECBNe8872",
+      "category": "Lodówka do zabudowy",
+      "price": 29999,
+      "description": "ECBNe 8872 BioFresh NoFrost Chłodziarko-zamrażarki do zabudowy zintegrowanej z systemem BioFresh i NoFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-ecbne7871",
+      "brand": "LIEBHERR",
+      "model": "ECBNe7871",
+      "category": "Lodówka do zabudowy",
+      "price": 25999,
+      "description": "ECBNe 7871 BioFresh NoFrost Chłodziarko-zamrażarki do zabudowy zintegrowanej z systemem BioFresh i NoFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-icbnc5623",
+      "brand": "LIEBHERR",
+      "model": "ICBNc5623",
+      "category": "Lodówka do zabudowy",
+      "price": 8999,
+      "description": "ICBNc 5623 Plus BioFresh NoFrost Chłodziarko-zamrażarki do zabudowy zintegrowanej z systemem BioFresh i NoFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-urc3701",
+      "brand": "LIEBHERR",
+      "model": "URc3701",
+      "category": "Lodówka do zabudowy",
+      "price": 4699,
+      "description": "URc 3701 Pure Chłodziarka do zabudowy podblatowej - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-irbc5120",
+      "brand": "LIEBHERR",
+      "model": "IRBc5120",
+      "category": "Chłodziarka do zabudowy",
+      "price": 6699,
+      "description": "IRBc 5120 Plus BioFresh Chłodziarka do zabudowy zintegrowanej z systemem BioFresh - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-irbbi5150",
+      "brand": "LIEBHERR",
+      "model": "IRBbi5150",
+      "category": "Chłodziarka do zabudowy",
+      "price": 9799,
+      "description": "IRBbi 5150 Prime BioFresh Chłodziarka do zabudowy zintegrowanej z systemem BioFresh - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-irbac5171",
+      "brand": "LIEBHERR",
+      "model": "IRBAc5171",
+      "category": "Chłodziarka do zabudowy",
+      "price": 15499,
+      "description": "IRBAc 5171 Peak BioFresh Chłodziarka do zintegrowanej zabudowy z technologią BioFresh Professional i AutoDoor - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-sufc3703",
+      "brand": "LIEBHERR",
+      "model": "SUFc3703",
+      "category": "Zamrażarka do zabudowy",
+      "price": 5699,
+      "description": "SUFc 3703 Pure Zamrażarka odpowiednia do montażu podblatowego z funkcją SmartFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-sifne5108",
+      "brand": "LIEBHERR",
+      "model": "SIFNe5108",
+      "category": "Zamrażarka do zabudowy",
+      "price": 7499,
+      "description": "SIFNe 5108 Pure NoFrost Zamrażarka szufladowa do zabudowy zintegrowanej z systemem NoFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-sifnbsdi5188",
+      "brand": "LIEBHERR",
+      "model": "SIFNbsdi5188",
+      "category": "Zamrażarka do zabudowy",
+      "price": 13499,
+      "description": "SIFNbsdi 5188 Peak NoFrost Zintegrowana zamrażarka z NoFrost i IceTower - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-sifndi5178",
+      "brand": "LIEBHERR",
+      "model": "SIFNdi5178",
+      "category": "Zamrażarka do zabudowy",
+      "price": 11999,
+      "description": "SIFNdi 5178 Peak NoFrost Zamrażarka szufladowa do zabudowy zintegrowanej z systemem NoFrost - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "liebherr-ifd3904",
+      "brand": "LIEBHERR",
+      "model": "IFd3904",
+      "category": "Zamrażarka do zabudowy",
+      "price": 4399,
+      "description": "IFd 3904 Pure Zamrażarka z funkcją SmartFrost do zabudowy - Liebherr",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-greenwich-n-100fb",
+      "brand": "SCHOCK",
+      "model": "GREENWICH N-100FB",
+      "category": "Zlewozmywak granitowy",
+      "price": 2499,
+      "description": "SCHOCK zlewozmywak GREENWICH N-100 FB - na równi z blatem - Magma CRISTADUR - LINIA STUDIO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-kaia-n-100s",
+      "brand": "SCHOCK",
+      "model": "KAIA N -100S",
+      "category": "Zlewozmywak granitowy",
+      "price": 1899,
+      "description": "SCHOCK zlewozmywak KAIA N-100S SILVERSTONE CRISTADUR® - LINIA STUDIO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-mono-d-100fb",
+      "brand": "SCHOCK",
+      "model": "MONO D-100FB",
+      "category": "Zlewozmywak granitowy",
+      "price": 2499,
+      "description": "SCHOCK zlewozmywak MONO D-100 FB - na równi z blatem - Magma CRISTADUR - LINIA STUDIO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-mono-d-100s",
+      "brand": "SCHOCK",
+      "model": "MONO D-100S",
+      "category": "Zlewozmywak granitowy",
+      "price": 1649,
+      "description": "Zlewozmywak MONO D-100S Magnolia CRISTADUR® SCHOCK",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-tia-d-100-stone",
+      "brand": "SCHOCK",
+      "model": "TIA D-100 Stone",
+      "category": "Zlewozmywak granitowy",
+      "price": 2499,
+      "description": "SCHOCK zlewozmywak TIA D-100 Stone CRISTADUR - LINIA STUDIO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-kiruna-n-100l",
+      "brand": "SCHOCK",
+      "model": "KIRUNA N-100L",
+      "category": "Zlewozmywak granitowy",
+      "price": 2299,
+      "description": "SCHOCK zlewozmywak KIRUNA N-100L Dusk CRISTADUR - LINIA STUDIO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-epos-540127-bronze",
+      "brand": "SCHOCK",
+      "model": "EPOS 540127 BRONZE",
+      "category": "Bateria z wyciąganą wylewką",
+      "price": 1499,
+      "description": "Bateria EPOS 540127 Bronze",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-gota-521120-czarna",
+      "brand": "SCHOCK",
+      "model": "GOTA 521120 CZARNA",
+      "category": "Bateria z wyciąganą wylewką",
+      "price": 1599,
+      "description": "Bateria GOTA 521120 Czarna SCHOCK - LINIA STUDIO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-kavus-559120-gub",
+      "brand": "SCHOCK",
+      "model": "KAVUS 559120 GUB",
+      "category": "Bateria z wyciąganą wylewką",
+      "price": 1699,
+      "description": "Bateria KAVUS 559120 GUB (Gunmetal Brushed) SCHOCK - LINIA STUDIO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-keto-518120-cob",
+      "brand": "SCHOCK",
+      "model": "KETO 518120 COB",
+      "category": "Bateria z wyciąganą wylewką",
+      "price": 1699,
+      "description": "Bateria KETO 518120 COB (Copper Brushed) SCHOCK - LINIA STUDIO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-laios-517120-white-gold",
+      "brand": "SCHOCK",
+      "model": "LAIOS 517120 White GOLD",
+      "category": "Bateria z wyciąganą wylewką",
+      "price": 1799,
+      "description": "Bateria LAIOS 517120 White Gold SCHOCK - LINIA STUDIO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-dion510000chr",
+      "brand": "SCHOCK",
+      "model": "DION510000CHR",
+      "category": "Bateria bez wyciąganej wylewki",
+      "price": 2499,
+      "description": "Bateria DION 510000 CHR - LINIA STUDIO SCHOCK",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "schock-epos540000-nero",
+      "brand": "SCHOCK",
+      "model": "EPOS540000 nero",
+      "category": "Bateria bez wyciąganej wylewki",
+      "price": 999,
+      "description": "Bateria EPOS 540000 Nero",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-sf67c1po",
+      "brand": "SMEG",
+      "model": "SF67C1PO",
+      "category": "Piekarnik",
+      "price": 4428,
+      "description": "Piekarnik Obieg powietrza 60 cm SF67C1PO Smeg",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-sf68c1b",
+      "brand": "SMEG",
+      "model": "SF68C1B",
+      "category": "Piekarnik",
+      "price": 4016,
+      "description": "Piekarnik Obieg powietrza 60 cm SF68C1B Smeg",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-sf6905x1",
+      "brand": "SMEG",
+      "model": "SF6905X1",
+      "category": "Piekarnik",
+      "price": 4531,
+      "description": "Piekarnik Termoobieg 60 cm SF6905X1 Smeg",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-so6102m2b3",
+      "brand": "SMEG",
+      "model": "SO6102M2B3",
+      "category": "Piekarnik",
+      "price": 10093,
+      "description": "SpeedwaveXL Galileo Piekarnik 60 cm SO6102M2B3 Smeg",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-so6104apg",
+      "brand": "SMEG",
+      "model": "SO6104APG",
+      "category": "Piekarnik",
+      "price": 19569,
+      "description": "",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-so6202m2b",
+      "brand": "SMEG",
+      "model": "SO6202M2B",
+      "category": "Piekarnik",
+      "price": 9269,
+      "description": "SpeedwaveXL Galileo Piekarnik 60 cm SO6202M2B Smeg",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-so6204apb",
+      "brand": "SMEG",
+      "model": "SO6204APB",
+      "category": "Piekarnik",
+      "price": 18024,
+      "description": "Omnichef Galileo Piekarnik 60 cm SO6204APB Smeg",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-so6606ws4pnr",
+      "brand": "SMEG",
+      "model": "SO6606WS4PNR",
+      "category": "Piekarnik",
+      "price": 17509,
+      "description": "Steam100 Pro Galileo Piekarnik 60 cm SO6606WS4PNR Smeg",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-so4604s4pnr",
+      "brand": "SMEG",
+      "model": "SO4604S4PNR",
+      "category": "Piekarnik",
+      "price": 14419,
+      "description": "Steam100 Pro Galileo Piekarnik 45 cm SO4604S4PNR Smeg",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-so4902m1p",
+      "brand": "SMEG",
+      "model": "SO4902M1P",
+      "category": "Mikrofala",
+      "price": 8239,
+      "description": "Micro combi Galileo Piekarnik 45 cm SO4902M1P Smeg",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-pgf75-4",
+      "brand": "SMEG",
+      "model": "PGF75-4",
+      "category": "Płyta gazowa",
+      "price": 3707,
+      "description": "Gazowa płyta kuchenna 70/75 cm Smeg PGF75-4",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-pv675cnr",
+      "brand": "SMEG",
+      "model": "PV675CNR",
+      "category": "Płyta gazowa",
+      "price": 7724,
+      "description": "Gazowa płyta kuchenna 70/75 cm Smeg PV675CNR",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-sr764po",
+      "brand": "SMEG",
+      "model": "SR764PO",
+      "category": "Płyta gazowa",
+      "price": 2780,
+      "description": "Gazowa płyta kuchenna 60 cm Smeg SR764PO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-sim3644mwh",
+      "brand": "SMEG",
+      "model": "SIM3644MWH",
+      "category": "Płyta indukcyjna",
+      "price": 5664,
+      "description": "Indukcyjna płyta kuchenna 60 cm Smeg SIM3644MWH",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-sisl7844",
+      "brand": "SMEG",
+      "model": "SISL7844",
+      "category": "Płyta indukcyjna",
+      "price": 6179,
+      "description": "Indukcyjna płyta kuchenna 80 cm Smeg SISL7844",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-si2b22641d",
+      "brand": "SMEG",
+      "model": "SI2B22641D",
+      "category": "Płyta indukcyjna",
+      "price": 2883,
+      "description": "Indukcyjna płyta kuchenna 60 cm Smeg SI2B22641D",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-fmi325n",
+      "brand": "SMEG",
+      "model": "FMI325N",
+      "category": "Mikrofala",
+      "price": 2883,
+      "description": "Kuchenka mikrofalowa do zabudowy Smeg FMI325N",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-mp722ao",
+      "brand": "SMEG",
+      "model": "MP722AO",
+      "category": "Mikrofala",
+      "price": 3810,
+      "description": "Kuchenka mikrofalowa do zabudowy Smeg MP722AO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-mp822po",
+      "brand": "SMEG",
+      "model": "MP822PO",
+      "category": "Mikrofala",
+      "price": 3810,
+      "description": "Kuchenka mikrofalowa do zabudowy Smeg MP822PO",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-cms4104g",
+      "brand": "SMEG",
+      "model": "CMS4104G",
+      "category": "Ekspres ciśnieniowy",
+      "price": 14316,
+      "description": "Ekspres do kawy Smeg CMS4104G",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-cms4604nr",
+      "brand": "SMEG",
+      "model": "CMS4604NR",
+      "category": "Ekspres ciśnieniowy",
+      "price": 14625,
+      "description": "Ekspres do kawy Smeg CMS4604NR",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-st352al",
+      "brand": "SMEG",
+      "model": "ST352AL",
+      "category": "Zmywarka do zabudowy",
+      "price": 4222,
+      "description": "Zmywarka Do zabudowy Smeg ST352AL",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-st323pt",
+      "brand": "SMEG",
+      "model": "ST323PT",
+      "category": "Zmywarka do zabudowy",
+      "price": 7209,
+      "description": "Zmywarka Do zabudowy Smeg ST323PT",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-stfabrd3",
+      "brand": "SMEG",
+      "model": "STFABRD3",
+      "category": "Zmywarka do zabudowy",
+      "price": 5767,
+      "description": "Zmywarka Podblatowa, do zabudowy Smeg STFABRD3",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-stl5322aol",
+      "brand": "SMEG",
+      "model": "STL5322AOL",
+      "category": "Zmywarka do zabudowy",
+      "price": 4119,
+      "description": "Zmywarka Do zabudowy Smeg STL5322AQL",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-stfabwh3",
+      "brand": "SMEG",
+      "model": "STFABWH3",
+      "category": "Zmywarka do zabudowy",
+      "price": 5767,
+      "description": "Zmywarka Podblatowa, do zabudowy Smeg STFABWH3",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-sbc4604wnr",
+      "brand": "SMEG",
+      "model": "SBC4604WNR",
+      "category": "Blast chiller",
+      "price": 18539,
+      "description": "Blast chiller Smeg SBC4604WNR",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-fab5rduj6",
+      "brand": "SMEG",
+      "model": "FAB5RDUJ6",
+      "category": "Lodówka wolnostojąca",
+      "price": 5664,
+      "description": "Lodówka Wolnostojąca Smeg FAB5RDUJ6 Edycja specjalna",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-fab32rbe6",
+      "brand": "SMEG",
+      "model": "FAB32RBE6",
+      "category": "Lodówka wolnostojąca",
+      "price": 9784,
+      "description": "Lodówka Wolnostojąca Smeg FAB32RBE6 Niebieski",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-fab32rli6",
+      "brand": "SMEG",
+      "model": "FAB32RLI6",
+      "category": "Lodówka wolnostojąca",
+      "price": 9784,
+      "description": "Lodówka Wolnostojąca Smeg FAB32RLI6 Limonkowy",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-fab38lbl6",
+      "brand": "SMEG",
+      "model": "FAB38LBL6",
+      "category": "Lodówka wolnostojąca",
+      "price": 12256,
+      "description": "Lodówka Wolnostojąca Smeg FAB38LBL6 Czarny",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "smeg-fab10hrrd6",
+      "brand": "SMEG",
+      "model": "FAB10HRRD6",
+      "category": "Lodówka wolnostojąca",
+      "price": 5046,
+      "description": "Lodówka Wolnostojąca Smeg FAB10HRRD6 Czerwony",
+      "image": null,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "galeria-01",
+      "image": "/media/galeria/01.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-02",
+      "image": "/media/galeria/02.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-03",
+      "image": "/media/galeria/03.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-04",
+      "image": "/media/galeria/04.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-05",
+      "image": "/media/galeria/05.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-06",
+      "image": "/media/galeria/06.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-07",
+      "image": "/media/galeria/07.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-08",
+      "image": "/media/galeria/08.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-09",
+      "image": "/media/galeria/09.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-10",
+      "image": "/media/galeria/10.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-11",
+      "image": "/media/galeria/11.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-12",
+      "image": "/media/galeria/12.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-13",
+      "image": "/media/galeria/13.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-14",
+      "image": "/media/galeria/14.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-15",
+      "image": "/media/galeria/15.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-16",
+      "image": "/media/galeria/16.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-17",
+      "image": "/media/galeria/17.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-18",
+      "image": "/media/galeria/18.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-19",
+      "image": "/media/galeria/19.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-20",
+      "image": "/media/galeria/20.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-21",
+      "image": "/media/galeria/21.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-22",
+      "image": "/media/galeria/22.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "galeria-23",
+      "image": "/media/galeria/23.jpg",
+      "caption": "",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-wine: #800020;
+  --color-wine-deep: #4c0014;
+  --color-wine-ink: #2a0a12;
+  --color-cream: #f6f0eb;
+  --color-paper: #fffaf7;
+  --color-sand: #eadfd8;
+  --color-muted: #6d564f;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, 'Times New Roman', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-wine-ink);
+}
+
+::selection {
+  background: #800020;
+  color: white;
+}
+
+.field {
+  margin-top: 0.35rem;
+  width: 100%;
+  border-radius: 0.9rem;
+  border: 1px solid color-mix(in srgb, #800020 22%, white);
+  background: white;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.95rem;
+  color: #2a0a12;
+}
+
+.field:focus {
+  outline: 2px solid #800020;
+  outline-offset: 1px;
+}
+
+.dark-field {
+  margin-top: 0.35rem;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgb(255 255 255 / 30%);
+  background: transparent;
+  padding: 0.75rem 0;
+  color: white;
+  outline: none;
+}
+
+.dark-field::placeholder {
+  color: rgb(255 255 255 / 45%);
+}
+
+.dark-field:focus {
+  border-bottom-color: #f6f0eb;
+}
