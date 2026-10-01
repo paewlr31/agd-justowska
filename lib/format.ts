@@ -35,8 +35,8 @@ export function cleanLine(value: string, max: number, label: string) {
   return text
 }
 
-export function cleanMultiline(value: string, max: number) {
+export function cleanMultiline(value: string, max: number, label = 'Opis') {
   const text = value.replace(/\r\n/g, '\n').trim()
-  if (text.length > max) throw new Error(`Opis może mieć najwyżej ${max} znaków.`)
+  if (text.length > max) throw new Error(`${label} może mieć najwyżej ${max} znaków.`)
   return text
 }

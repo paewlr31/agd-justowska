@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { fail } from '@/lib/errors'
-import { productInputFromForm, readImage } from '@/lib/parse'
+import { productInputFromForm } from '@/lib/parse'
 import { deleteProduct, updateProduct } from '@/lib/store'
 
 export const dynamic = 'force-dynamic'
@@ -12,7 +12,7 @@ export async function PATCH(request: Request, context: Context) {
   try {
     const { id } = await context.params
     const form = await request.formData()
-    await updateProduct(id, productInputFromForm(form, await readImage(form)))
+    await updateProduct(id, await productInputFromForm(form))
     return NextResponse.json({ ok: true })
   } catch (error) {
     return fail(error)

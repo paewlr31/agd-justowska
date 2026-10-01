@@ -5,6 +5,11 @@ export type Manufacturer = {
   sortOrder: number
 }
 
+export type ProductFile = {
+  url: string
+  name: string
+}
+
 export type Product = {
   id: string
   brand: string
@@ -12,7 +17,11 @@ export type Product = {
   category: string
   price: number | null
   description: string
+  features: string
+  energyClass: string | null
   image: string | null
+  images: string[]
+  files: ProductFile[]
   createdAt: string
 }
 
@@ -41,6 +50,10 @@ export type ProductInput = {
   category: string
   price: number | null
   description: string
-  image?: UploadedImage | null
-  removeImage?: boolean
+  features: string
+  energyClass: string | null
+  images: UploadedImage[]
+  files: UploadedImage[]
+  removeImages: string[]
+  removeFiles: string[]
 }

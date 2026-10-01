@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { FormEvent, useEffect, useState } from 'react'
 import { PanelBar } from '@/components/panel-bar'
+import { ENERGY_CLASSES } from '@/lib/energy'
 import { formatPrice, modelsLabel } from '@/lib/format'
 import type { Catalog, Product } from '@/lib/types'
 
@@ -20,11 +21,10 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
   const [model, setModel] = useState('')
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
+  const [features, setFeatures] = useState('')
+  const [energyClass, setEnergyClass] = useState('')
   const [fileKey, setFileKey] = useState(0)
-  const [file, setFile] = useState<File | null>(null)
   const [editing, setEditing] = useState<Product | null>(null)
-  const [editFile, setEditFile] = useState<File | null>(null)
-  const [removeImage, setRemoveImage] = useState(false)
   const [notice, setNotice] = useState('')
   const [error, setError] = useState('')
   const [pending, setPending] = useState(false)
@@ -95,13 +95,18 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
     body.set('model', model)
     body.set('price', price)
     body.set('description', description)
-    if (file) body.set('image', file)
+    body.set('features', features)
+    body.set('energyClass', energyClass)
+    const source = new FormData(event.currentTarget)
+    for (const item of source.getAll('images')) body.append('images', item)
+    for (const item of source.getAll('files')) body.append('files', item)
     const saved = await request('/api/products', { method: 'POST', body })
     if (!saved) return
     setModel('')
     setPrice('')
     setDescription('')
-    setFile(null)
+    setFeatures('')
+    setEnergyClass('')
     setFileKey((value) => value + 1)
     setNotice('Dodano produkt.')
   }
@@ -110,13 +115,9 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
     event.preventDefault()
     if (!editing) return
     const form = new FormData(event.currentTarget)
-    if (editFile) form.set('image', editFile)
-    if (removeImage) form.set('removeImage', '1')
     const saved = await request(`/api/products/${editing.id}`, { method: 'PATCH', body: form })
     if (!saved) return
     setEditing(null)
-    setEditFile(null)
-    setRemoveImage(false)
     setNotice('Zapisano zmiany.')
   }
 
@@ -205,7 +206,7 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
 
             <form onSubmit={addProduct} className="rounded-3xl bg-paper p-5 md:p-7">
               <h2 className="font-serif text-3xl">Dodaj produkt</h2>
-              <p className="mt-2 text-sm text-muted">Najpierw marka, potem typ urządzenia. Zdjęcie jest opcjonalne — na stronie są tylko zdjęcia wgrane tutaj.</p>
+              <p className="mt-2 text-sm text-muted">Cechy wpisuj po jednej w linii. Opis może mieć kilka akapitów. Zdjęcia i pliki możesz dodać po kilka naraz.</p>
               <div className="mt-5 grid gap-4 md:grid-cols-2">
                 <label className="text-sm font-medium">
                   Typ urządzenia
@@ -238,13 +239,30 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
                   Cena detaliczna (zł)
                   <input className="field" inputMode="decimal" value={price} onChange={(event) => setPrice(event.target.value)} placeholder="6999" />
                 </label>
-                <label className="text-sm font-medium md:col-span-2">
-                  Opis
-                  <textarea className="field min-h-28" value={description} onChange={(event) => setDescription(event.target.value)} />
+                <label className="text-sm font-medium">
+                  Klasa energetyczna
+                  <select className="field" value={energyClass} onChange={(event) => setEnergyClass(event.target.value)}>
+                    <option value="">Nie dotyczy</option>
+                    {ENERGY_CLASSES.map((item) => (
+                      <option key={item} value={item}>{item}</option>
+                    ))}
+                  </select>
                 </label>
                 <label className="text-sm font-medium md:col-span-2">
-                  Zdjęcie
-                  <input key={fileKey} className="field" type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => setFile(event.target.files?.[0] ?? null)} />
+                  Cechy, jedna w linii
+                  <textarea className="field min-h-28" value={features} onChange={(event) => setFeatures(event.target.value)} placeholder={'Pieczenie, para i sous-vide\nCookSmart Touch+\nTermosonda w zestawie'} />
+                </label>
+                <label className="text-sm font-medium md:col-span-2">
+                  Opis
+                  <textarea className="field min-h-36" value={description} onChange={(event) => setDescription(event.target.value)} placeholder={'Piekarnik 9000 ProAssist z funkcją SteamPro – doskonałe rezultaty jednym naciśnięciem przycisku.\n\nZe SteamPro możesz piec, gotować na parze i gotować sous-vide.'} />
+                </label>
+                <label className="text-sm font-medium">
+                  Zdjęcia, kilka naraz
+                  <input key={`images-${fileKey}`} name="images" className="field" type="file" multiple accept="image/jpeg,image/png,image/webp,image/avif,image/gif,image/bmp,image/tiff,.avif,.heic,.tif,.tiff" />
+                </label>
+                <label className="text-sm font-medium">
+                  Pliki: PDF i inne
+                  <input key={`files-${fileKey}`} name="files" className="field" type="file" multiple />
                 </label>
               </div>
               <button type="submit" disabled={pending} className="mt-5 rounded-full bg-wine px-5 py-3 text-sm font-semibold text-white disabled:opacity-60">
@@ -286,18 +304,49 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
                           <input name="price" className="field" defaultValue={product.price ?? ''} />
                         </label>
                         <label className="text-sm font-medium md:col-span-2">
-                          Opis
-                          <textarea name="description" className="field min-h-24" defaultValue={product.description} />
+                          Klasa energetyczna
+                          <select name="energyClass" className="field" defaultValue={product.energyClass ?? ''}>
+                            <option value="">Nie dotyczy</option>
+                            {ENERGY_CLASSES.map((item) => (
+                              <option key={item} value={item}>{item}</option>
+                            ))}
+                          </select>
                         </label>
                         <label className="text-sm font-medium md:col-span-2">
-                          Nowe zdjęcie
-                          <input className="field" type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => setEditFile(event.target.files?.[0] ?? null)} />
+                          Cechy, jedna w linii
+                          <textarea name="features" className="field min-h-28" defaultValue={product.features} />
                         </label>
-                        {product.image ? (
-                          <label className="flex items-center gap-2 text-sm md:col-span-2">
-                            <input type="checkbox" checked={removeImage} onChange={(event) => setRemoveImage(event.target.checked)} />
-                            Usuń obecne zdjęcie
-                          </label>
+                        <label className="text-sm font-medium md:col-span-2">
+                          Opis
+                          <textarea name="description" className="field min-h-36" defaultValue={product.description} />
+                        </label>
+                        {product.images.length > 0 ? (
+                          <div className="grid grid-cols-3 gap-3 md:col-span-2">
+                            {product.images.map((image) => (
+                              <label key={image} className="text-xs font-semibold text-wine">
+                                <img src={image} alt="" className="aspect-[4/3] w-full rounded-xl bg-sand object-contain" />
+                                <span className="mt-1 flex items-center gap-2"><input type="checkbox" name="removeImages" value={image} /> Usuń</span>
+                              </label>
+                            ))}
+                          </div>
+                        ) : null}
+                        <label className="text-sm font-medium">
+                          Dodaj zdjęcia
+                          <input name="images" className="field" type="file" multiple accept="image/jpeg,image/png,image/webp,image/avif,image/gif,image/bmp,image/tiff,.avif,.heic,.tif,.tiff" />
+                        </label>
+                        <label className="text-sm font-medium">
+                          Dodaj pliki
+                          <input name="files" className="field" type="file" multiple />
+                        </label>
+                        {product.files.length > 0 ? (
+                          <div className="space-y-2 md:col-span-2">
+                            {product.files.map((file) => (
+                              <label key={file.url} className="flex items-center gap-2 text-sm">
+                                <input type="checkbox" name="removeFiles" value={file.url} />
+                                Usuń {file.name}
+                              </label>
+                            ))}
+                          </div>
                         ) : null}
                         <div className="flex gap-3 md:col-span-2">
                           <button type="submit" disabled={pending} className="rounded-full bg-wine px-4 py-2 text-sm font-semibold text-white disabled:opacity-60">
@@ -318,7 +367,7 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
                           </p>
                         </div>
                         <div className="flex gap-3">
-                          <button type="button" className="text-sm font-semibold text-wine" onClick={() => { setEditing(product); setRemoveImage(false); setEditFile(null) }}>
+                          <button type="button" className="text-sm font-semibold text-wine" onClick={() => setEditing(product)}>
                             Edytuj
                           </button>
                           <button type="button" className="text-sm font-semibold text-wine" onClick={() => removeProduct(product)}>

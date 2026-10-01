@@ -16,7 +16,11 @@ create table if not exists products (
   category text not null,
   price numeric,
   description text not null default '',
+  features text not null default '',
+  energy_class text,
   image_url text,
+  images text[] not null default '{}',
+  files jsonb not null default '[]',
   created_at timestamptz not null default now()
 );
 

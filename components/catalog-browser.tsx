@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import { company } from '@/lib/company'
@@ -117,16 +118,19 @@ export function CatalogBrowser({ catalog }: { catalog: Catalog }) {
                     ) : (
                       <ul className="mt-2">
                         {group.items.map((product) => (
-                          <li key={product.id} className={`grid gap-4 border-b border-sand py-5 ${product.image ? 'sm:grid-cols-[7.5rem_1fr_auto]' : 'sm:grid-cols-[1fr_auto]'} sm:items-center`}>
-                            {product.image ? <img src={product.image} alt={`${product.brand} ${product.model}`} className="h-28 w-full rounded-xl object-cover sm:w-28" /> : null}
-                            <div>
-                              <h4 className="font-serif text-2xl leading-tight">{product.model}</h4>
-                              {product.description ? <p className="mt-1 max-w-2xl whitespace-pre-line text-sm leading-6 text-muted">{product.description}</p> : null}
-                            </div>
-                            <div className="sm:text-right">
-                              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted">Cena detaliczna</p>
-                              <p className="mt-1 text-lg font-semibold text-wine">{formatPrice(product.price)}</p>
-                            </div>
+                          <li key={product.id} className="border-b border-sand">
+                            <Link href={`/producenci/${manufacturer.slug}/${product.id}`} className={`grid gap-4 py-5 ${product.image ? 'sm:grid-cols-[7.5rem_1fr_auto]' : 'sm:grid-cols-[1fr_auto]'} sm:items-center`}>
+                              {product.image ? <img src={product.image} alt="" className="aspect-[4/3] w-full rounded-xl bg-sand object-contain sm:w-28" /> : null}
+                              <div>
+                                <h4 className="font-serif text-2xl leading-tight">{product.model}</h4>
+                                <p className="mt-1 text-sm font-semibold text-wine">Zobacz produkt</p>
+                              </div>
+                              <div className="sm:text-right">
+                                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted">Cena detaliczna</p>
+                                <p className="mt-1 text-lg font-semibold text-wine">{formatPrice(product.price)}</p>
+                                {product.energyClass ? <p className="mt-1 text-xs font-semibold text-muted">Klasa {product.energyClass}</p> : null}
+                              </div>
+                            </Link>
                           </li>
                         ))}
                       </ul>

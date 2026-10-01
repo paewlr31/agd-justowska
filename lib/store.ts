@@ -4,8 +4,9 @@ import path from 'path'
 import { unstable_noStore as noStore } from 'next/cache'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import seedJson from '@/data/seed.json'
+import { contentTypeFor, fileExtension, isRasterImage, normalizeProductImage } from '@/lib/media'
 import { imageExtension } from '@/lib/parse'
-import type { Catalog, GalleryItem, Manufacturer, Product, ProductInput, UploadedImage } from '@/lib/types'
+import type { Catalog, GalleryItem, Manufacturer, Product, ProductFile, ProductInput, UploadedImage } from '@/lib/types'
 
 const seed = seedJson as Catalog
 const dbFile = path.join(process.cwd(), 'data', 'db.json')
@@ -35,10 +36,31 @@ function assertCatalog(value: unknown): Catalog {
   return catalog
 }
 
+function normalizeProduct(product: Product): Product {
+  const fromList = Array.isArray(product.images) ? product.images.filter(Boolean) : []
+  const images = fromList.length ? fromList : product.image ? [product.image] : []
+  return {
+    ...product,
+    description: product.description ?? '',
+    features: product.features ?? '',
+    energyClass: product.energyClass ?? null,
+    files: Array.isArray(product.files) ? product.files : [],
+    images,
+    image: images[0] ?? null,
+  }
+}
+
+function databaseError(message: string) {
+  if (/column .* does not exist|schema cache/i.test(message)) {
+    return 'W Supabase uruchom plik supabase/migration-product-media.sql. Dotychczasowe produkty zostaną na miejscu.'
+  }
+  return message
+}
+
 function present(catalog: Catalog): Catalog {
   const manufacturers = [...catalog.manufacturers].sort((a, b) => a.sortOrder - b.sortOrder)
   const byName = new Map(manufacturers.map((item) => [item.name, item]))
-  const products = [...catalog.products].sort((a, b) => {
+  const products = catalog.products.map((product) => normalizeProduct(product)).sort((a, b) => {
     const brandA = byName.get(a.brand)?.sortOrder ?? 99
     const brandB = byName.get(b.brand)?.sortOrder ?? 99
     if (brandA !== brandB) return brandA - brandB
@@ -53,13 +75,13 @@ function present(catalog: Catalog): Catalog {
 }
 
 function loadLocal(): Catalog {
-  if (fs.existsSync(dbFile)) return assertCatalog(JSON.parse(fs.readFileSync(dbFile, 'utf8')))
-  const initial = structuredClone(seed)
-  if (!process.env.VERCEL) {
+  const catalog = fs.existsSync(dbFile) ? assertCatalog(JSON.parse(fs.readFileSync(dbFile, 'utf8'))) : structuredClone(seed)
+  catalog.products = catalog.products.map((product) => normalizeProduct(product))
+  if (!fs.existsSync(dbFile) && !process.env.VERCEL) {
     fs.mkdirSync(path.dirname(dbFile), { recursive: true })
-    fs.writeFileSync(dbFile, JSON.stringify(initial, null, 2))
+    fs.writeFileSync(dbFile, JSON.stringify(catalog, null, 2))
   }
-  return initial
+  return catalog
 }
 
 function saveLocal(catalog: Catalog) {
@@ -138,13 +160,24 @@ function asPrice(value: unknown) {
   return Number.isFinite(number) ? number : null
 }
 
+function asFiles(value: unknown): ProductFile[] {
+  if (!Array.isArray(value)) return []
+  return value
+    .filter((item): item is { url?: string; name?: string } => Boolean(item) && typeof item === 'object')
+    .filter((item) => typeof item.url === 'string')
+    .map((item) => ({ url: item.url as string, name: item.name || 'Plik' }))
+}
+
 async function readSupabase(): Promise<Catalog> {
   const db = supabase()
-  const [manufacturers, products, gallery] = await Promise.all([
+  const [manufacturers, gallery] = await Promise.all([
     db.from('manufacturers').select('slug, name, categories, sort_order').order('sort_order'),
-    db.from('products').select('id, brand, model, category, price, description, image_url, created_at'),
     db.from('gallery').select('id, image_url, caption, created_at'),
   ])
+  let products = await db.from('products').select('id, brand, model, category, price, description, features, energy_class, image_url, images, files, created_at')
+  if (products.error && /column .* does not exist|schema cache/i.test(products.error.message)) {
+    products = await db.from('products').select('id, brand, model, category, price, description, image_url, created_at')
+  }
   const failure = manufacturers.error?.message || products.error?.message || gallery.error?.message
   if (failure) {
     if (failure.includes('does not exist') || failure.includes('schema cache')) {
@@ -159,16 +192,25 @@ async function readSupabase(): Promise<Catalog> {
       categories: row.categories ?? [],
       sortOrder: row.sort_order,
     })),
-    products: (products.data ?? []).map((row) => ({
-      id: row.id,
-      brand: row.brand,
-      model: row.model,
-      category: row.category,
-      price: asPrice(row.price),
-      description: row.description ?? '',
-      image: row.image_url,
-      createdAt: row.created_at,
-    })),
+    products: (products.data ?? []).map((row) => {
+      const record = row as typeof row & { features?: string; energy_class?: string | null; images?: string[] | null; files?: unknown }
+      const fromList = Array.isArray(record.images) ? record.images.filter(Boolean) : []
+      const images = fromList.length ? fromList : record.image_url ? [record.image_url] : []
+      return normalizeProduct({
+        id: record.id,
+        brand: record.brand,
+        model: record.model,
+        category: record.category,
+        price: asPrice(record.price),
+        description: record.description ?? '',
+        features: record.features ?? '',
+        energyClass: record.energy_class ?? null,
+        image: images[0] ?? null,
+        images,
+        files: asFiles(record.files),
+        createdAt: record.created_at,
+      })
+    }),
     gallery: (gallery.data ?? []).map((row) => ({
       id: row.id,
       image: row.image_url,
@@ -252,100 +294,158 @@ function validateProduct(catalog: Catalog, input: ProductInput) {
   requireCategory(manufacturer, input.category)
 }
 
+async function storeBuffer(folder: string, id: string, buffer: Buffer, contentType: string, extension: string) {
+  assertWritable()
+  if (databaseMode() === 'supabase') {
+    const objectPath = `${folder}/${id}${extension}`
+    const { error } = await supabase().storage.from('media').upload(objectPath, new Uint8Array(buffer), { contentType, upsert: true })
+    if (error) throw new Error(databaseError(`Nie udało się zapisać pliku: ${error.message}`))
+    const { data } = supabase().storage.from('media').getPublicUrl(objectPath)
+    return `${data.publicUrl}?v=${Date.now()}`
+  }
+  const filename = `${id}${extension}`
+  const directory = path.join(process.cwd(), 'public', 'uploads')
+  fs.mkdirSync(directory, { recursive: true })
+  fs.writeFileSync(path.join(directory, filename), buffer)
+  return `/uploads/${filename}?v=${Date.now()}`
+}
+
+async function storeProductImage(productId: string, file: UploadedImage) {
+  const buffer = await normalizeProductImage(file.buffer, file.filename)
+  return storeBuffer('products', `${productId}-${randomUUID()}`, buffer, 'image/webp', '.webp')
+}
+
+async function storeProductFile(productId: string, file: UploadedImage) {
+  const extension = `.${fileExtension(file.filename)}`
+  const url = await storeBuffer('files', `${productId}-${randomUUID()}`, file.buffer, contentTypeFor(file.filename, file.contentType), extension)
+  return { url, name: path.basename(file.filename).slice(0, 120) }
+}
+
+async function collectMedia(productId: string, input: ProductInput, images: string[], files: ProductFile[]) {
+  for (const file of input.images) {
+    if (!isRasterImage(file.filename, file.contentType)) {
+      throw new Error(`„${file.filename}” dodaj w polu Pliki. W zdjęciach zostaw JPG, PNG, WEBP, AVIF i podobne.`)
+    }
+    images.push(await storeProductImage(productId, file))
+  }
+  for (const file of input.files) {
+    if (isRasterImage(file.filename, file.contentType)) images.push(await storeProductImage(productId, file))
+    else files.push(await storeProductFile(productId, file))
+  }
+}
+
+function productRecord(id: string, input: ProductInput, images: string[], files: ProductFile[], createdAt: string) {
+  return normalizeProduct({
+    id,
+    brand: input.brand,
+    model: input.model,
+    category: input.category,
+    price: input.price,
+    description: input.description,
+    features: input.features,
+    energyClass: input.energyClass,
+    image: images[0] ?? null,
+    images,
+    files,
+    createdAt,
+  })
+}
+
 export async function addProduct(input: ProductInput) {
   assertWritable()
   const catalog = databaseMode() === 'supabase' ? await readSupabase() : loadLocal()
   validateProduct(catalog, input)
   const id = randomUUID()
   const createdAt = new Date().toISOString()
-  const image = input.image ? await persistProductImage(id, input.image) : null
+  const images: string[] = []
+  const files: ProductFile[] = []
   try {
+    await collectMedia(id, input, images, files)
+    const product = productRecord(id, input, images, files, createdAt)
     if (databaseMode() === 'supabase') {
       const { error } = await supabase().from('products').insert({
         id,
-        brand: input.brand,
-        model: input.model,
-        category: input.category,
-        price: input.price,
-        description: input.description,
-        image_url: image,
+        brand: product.brand,
+        model: product.model,
+        category: product.category,
+        price: product.price,
+        description: product.description,
+        features: product.features,
+        energy_class: product.energyClass,
+        image_url: product.image,
+        images: product.images,
+        files: product.files,
         created_at: createdAt,
       })
-      if (error) throw new Error(error.message)
+      if (error) throw new Error(databaseError(error.message))
     } else {
-      catalog.products.push({ id, brand: input.brand, model: input.model, category: input.category, price: input.price, description: input.description, image, createdAt })
+      catalog.products.push(product)
       saveLocal(catalog)
     }
   } catch (error) {
-    await discardImage(image)
+    await Promise.all([...images, ...files.map((file) => file.url)].map((url) => discardImage(url)))
     throw error
   }
   return id
 }
 
+async function saveProduct(current: Product, input: ProductInput) {
+  const images = current.images.filter((url) => !input.removeImages.includes(url))
+  const files = current.files.filter((file) => !input.removeFiles.includes(file.url))
+  const added: string[] = []
+  const imageCount = images.length
+  const fileCount = files.length
+  try {
+    await collectMedia(current.id, input, images, files)
+    added.push(...images.slice(imageCount), ...files.slice(fileCount).map((file) => file.url))
+    const product = productRecord(current.id, input, images, files, current.createdAt)
+    if (databaseMode() === 'supabase') {
+      const { error } = await supabase().from('products').update({
+        brand: product.brand,
+        model: product.model,
+        category: product.category,
+        price: product.price,
+        description: product.description,
+        features: product.features,
+        energy_class: product.energyClass,
+        image_url: product.image,
+        images: product.images,
+        files: product.files,
+      }).eq('id', current.id)
+      if (error) throw new Error(databaseError(error.message))
+    } else {
+      Object.assign(current, product)
+    }
+    await Promise.all([...input.removeImages, ...input.removeFiles].map((url) => discardImage(url)))
+  } catch (error) {
+    await Promise.all(added.map((url) => discardImage(url)))
+    throw error
+  }
+}
+
 export async function updateProduct(id: string, input: ProductInput) {
   assertWritable()
-  if (databaseMode() === 'supabase') {
-    const catalog = await readSupabase()
-    const current = catalog.products.find((product) => product.id === id)
-    if (!current) throw new Error('Nie znaleziono produktu.')
-    validateProduct(catalog, input)
-    let image = current.image
-    if (input.image) {
-      image = await persistProductImage(id, input.image)
-      if (current.image && !sameStoredFile(current.image, image)) await discardImage(current.image)
-    } else if (input.removeImage) {
-      await discardImage(current.image)
-      image = null
-    }
-    const { error } = await supabase().from('products').update({
-      brand: input.brand,
-      model: input.model,
-      category: input.category,
-      price: input.price,
-      description: input.description,
-      image_url: image,
-    }).eq('id', id)
-    if (error) throw new Error(error.message)
-    return
-  }
-  const catalog = loadLocal()
+  const catalog = databaseMode() === 'supabase' ? await readSupabase() : loadLocal()
   const current = catalog.products.find((product) => product.id === id)
   if (!current) throw new Error('Nie znaleziono produktu.')
   validateProduct(catalog, input)
-  if (input.image) {
-    const next = writeLocalImage(id, input.image)
-    if (current.image && !sameStoredFile(current.image, next)) removeLocalImage(current.image)
-    current.image = next
-  } else if (input.removeImage) {
-    removeLocalImage(current.image)
-    current.image = null
-  }
-  current.brand = input.brand
-  current.model = input.model
-  current.category = input.category
-  current.price = input.price
-  current.description = input.description
-  saveLocal(catalog)
+  await saveProduct(current, input)
+  if (databaseMode() !== 'supabase') saveLocal(catalog)
 }
 
 export async function deleteProduct(id: string) {
   assertWritable()
-  if (databaseMode() === 'supabase') {
-    const catalog = await readSupabase()
-    const current = catalog.products.find((product) => product.id === id)
-    if (!current) return
-    const { error } = await supabase().from('products').delete().eq('id', id)
-    if (error) throw new Error(error.message)
-    await discardImage(current.image)
-    return
-  }
-  const catalog = loadLocal()
+  const catalog = databaseMode() === 'supabase' ? await readSupabase() : loadLocal()
   const current = catalog.products.find((product) => product.id === id)
   if (!current) return
-  catalog.products = catalog.products.filter((product) => product.id !== id)
-  saveLocal(catalog)
-  removeLocalImage(current.image)
+  if (databaseMode() === 'supabase') {
+    const { error } = await supabase().from('products').delete().eq('id', id)
+    if (error) throw new Error(databaseError(error.message))
+  } else {
+    catalog.products = catalog.products.filter((product) => product.id !== id)
+    saveLocal(catalog)
+  }
+  await Promise.all([...current.images, ...current.files.map((file) => file.url)].map((url) => discardImage(url)))
 }
 
 export async function addGalleryItem(image: UploadedImage, caption: string) {
