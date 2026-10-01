@@ -34,8 +34,10 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <span> / </span>
         <Link href={`/producenci?marka=${manufacturer.slug}`} className="font-semibold text-wine">{product.brand}</Link>
       </p>
-      <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-        <ProductGallery images={product.images} label={`${product.brand} ${product.model}`} />
+      <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        <div className="lg:sticky lg:top-24">
+          <ProductGallery images={product.images} label={`${product.brand} ${product.model}`} />
+        </div>
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-wine">{product.category}</p>
           <h1 className="mt-2 font-serif text-5xl leading-none">{product.model}</h1>
@@ -52,45 +54,45 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               </div>
             ) : null}
           </div>
+
+          {features.length > 0 ? (
+            <section className="mt-10">
+              <h2 className="font-serif text-3xl">Cechy</h2>
+              <ul className="mt-4 space-y-2 text-base leading-7 text-muted">
+                {features.map((feature) => (
+                  <li key={feature} className="border-b border-sand py-2">{feature}</li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
+          {paragraphs.length > 0 ? (
+            <section className="mt-10">
+              <h2 className="font-serif text-3xl">Opis</h2>
+              <div className="mt-4 space-y-4 text-base leading-7 text-muted">
+                {paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {product.files.length > 0 ? (
+            <section className="mt-10">
+              <h2 className="font-serif text-3xl">Pliki</h2>
+              <ul className="mt-4 space-y-2">
+                {product.files.map((file) => (
+                  <li key={file.url}>
+                    <a href={file.url} className="font-semibold text-wine" download={file.name}>
+                      {file.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
       </div>
-
-      {features.length > 0 ? (
-        <section className="mt-12 max-w-3xl">
-          <h2 className="font-serif text-4xl">Cechy</h2>
-          <ul className="mt-4 space-y-2 text-base leading-7 text-muted">
-            {features.map((feature) => (
-              <li key={feature} className="border-b border-sand py-2">{feature}</li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {paragraphs.length > 0 ? (
-        <section className="mt-12 max-w-3xl">
-          <h2 className="font-serif text-4xl">Opis</h2>
-          <div className="mt-4 space-y-4 text-base leading-7 text-muted">
-            {paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {product.files.length > 0 ? (
-        <section className="mt-12 max-w-3xl">
-          <h2 className="font-serif text-4xl">Pliki</h2>
-          <ul className="mt-4 space-y-2">
-            {product.files.map((file) => (
-              <li key={file.url}>
-                <a href={file.url} className="font-semibold text-wine" download={file.name}>
-                  {file.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
     </article>
   )
 }
