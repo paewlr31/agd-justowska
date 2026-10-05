@@ -19,7 +19,8 @@ export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
   const [categoriesHidden, setCategoriesHidden] = useState(false)
   const [categoriesExpanded, setCategoriesExpanded] = useState(false)
   const closeTimer = useRef<number | null>(null)
-  const scrollLock = useRef(false)
+  const ignoreScrollUntil = useRef(0)
+  const lastScrollY = useRef(0)
 
   useEffect(() => {
     setOpen(false)
@@ -27,34 +28,38 @@ export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
   }, [pathname])
 
   useEffect(() => {
-    let last = window.scrollY
+    lastScrollY.current = window.scrollY
     function onScroll() {
       const y = window.scrollY
-      if (scrollLock.current) {
-        last = y
+      if (performance.now() < ignoreScrollUntil.current) {
+        lastScrollY.current = y
         return
       }
-      if (y <= 12) {
+      if (y <= 8) {
         setCategoriesHidden(false)
         setCategoriesExpanded(false)
-        last = y
+        lastScrollY.current = y
         return
       }
-      if (y > last + 8) {
+      if (y > 80 && y > lastScrollY.current + 32) {
         setCategoriesHidden(true)
         setCategoriesExpanded(false)
         setCategory(null)
-        scrollLock.current = true
-        window.setTimeout(() => {
-          scrollLock.current = false
-          last = window.scrollY
-        }, 400)
+        ignoreScrollUntil.current = performance.now() + 500
       }
-      last = y
+      lastScrollY.current = y
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  function expandCategories() {
+    setCategoriesExpanded(true)
+    ignoreScrollUntil.current = performance.now() + 700
+    window.setTimeout(() => {
+      lastScrollY.current = window.scrollY
+    }, 80)
+  }
 
   const showCategories = !categoriesHidden || categoriesExpanded
 
@@ -138,7 +143,7 @@ export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
       </nav>
       {!showCategories ? (
         <div className="hidden justify-center border-t border-white/10 bg-[#f3e6df] py-1.5 lg:flex">
-          <button type="button" className="text-sm font-semibold text-wine" onClick={() => setCategoriesExpanded(true)}>
+          <button type="button" className="text-sm font-semibold text-wine" onClick={expandCategories}>
             Rozwiń kategorie
           </button>
         </div>
