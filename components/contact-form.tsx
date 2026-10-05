@@ -44,9 +44,9 @@ export function ContactForm({ accessKey, compact = false }: { accessKey: string;
 
   if (status === 'sent') {
     return (
-      <div className={compact ? 'text-cream' : 'rounded-3xl bg-wine-deep p-8 text-cream md:p-10'}>
+      <div className={compact ? 'text-wine-ink' : 'rounded-3xl bg-wine-deep p-8 text-cream md:p-10'}>
         <h2 className={compact ? 'font-serif text-3xl' : 'font-serif text-4xl'}>Wysłano.</h2>
-        <button type="button" className="mt-4 text-sm font-semibold text-sand underline" onClick={() => setStatus('idle')}>
+        <button type="button" className={`mt-4 text-sm font-semibold underline ${compact ? 'text-wine' : 'text-sand'}`} onClick={() => setStatus('idle')}>
           Wyślij kolejną
         </button>
       </div>
@@ -54,28 +54,28 @@ export function ContactForm({ accessKey, compact = false }: { accessKey: string;
   }
 
   return (
-    <form className={compact ? 'text-cream' : 'rounded-3xl bg-wine-deep p-8 text-cream md:p-10'} onSubmit={onSubmit}>
+    <form className={compact ? 'text-wine-ink' : 'rounded-3xl bg-wine-deep p-8 text-cream md:p-10'} onSubmit={onSubmit}>
       {compact ? null : <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sand">Napisz do nas</p>}
-      <h2 className={compact ? 'font-serif text-3xl' : 'mt-3 font-serif text-4xl'}>{compact ? 'Napisz do nas' : 'Opowiedz, czego szukasz.'}</h2>
+      <h2 className={compact ? 'font-serif text-3xl text-wine' : 'mt-3 font-serif text-4xl'}>{compact ? 'Napisz do nas' : 'Opowiedz, czego szukasz.'}</h2>
       <input type="text" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
-      <div className="mt-8 space-y-5">
-        <label className="block text-sm text-cream/70">
+      <div className={compact ? 'mt-4 space-y-3' : 'mt-8 space-y-5'}>
+        <label className={`block text-sm ${compact ? 'text-muted' : 'text-cream/70'}`}>
           Imię i nazwisko
-          <input name="name" required autoComplete="name" className="dark-field" placeholder="Jak się do Ciebie zwracać?" />
+          <input name="name" required autoComplete="name" className={compact ? 'field' : 'dark-field'} placeholder="Jak się do Ciebie zwracać?" />
         </label>
-        <label className="block text-sm text-cream/70">
+        <label className={`block text-sm ${compact ? 'text-muted' : 'text-cream/70'}`}>
           E-mail
-          <input name="email" type="email" required autoComplete="email" className="dark-field" placeholder="ty@przyklad.pl" />
+          <input name="email" type="email" required autoComplete="email" className={compact ? 'field' : 'dark-field'} placeholder="ty@przyklad.pl" />
         </label>
-        <label className="block text-sm text-cream/70">
+        <label className={`block text-sm ${compact ? 'text-muted' : 'text-cream/70'}`}>
           Telefon
-          <input name="phone" type="tel" autoComplete="tel" className="dark-field" placeholder="nieobowiązkowo" />
+          <input name="phone" type="tel" autoComplete="tel" className={compact ? 'field' : 'dark-field'} placeholder="nieobowiązkowo" />
         </label>
-        <label className="block text-sm text-cream/70">
+        <label className={`block text-sm ${compact ? 'text-muted' : 'text-cream/70'}`}>
           Wiadomość
-          <textarea name="message" required className={`dark-field resize-y ${compact ? 'min-h-20' : 'min-h-32'}`} placeholder="Marka, model albo czego potrzebuje kuchnia." />
+          <textarea name="message" required className={`${compact ? 'field' : 'dark-field'} resize-y ${compact ? 'min-h-20' : 'min-h-32'}`} placeholder="Marka, model albo czego potrzebuje kuchnia." />
         </label>
-        <button type="submit" disabled={status === 'sending'} className="w-full rounded-full bg-cream py-3 text-sm font-semibold text-wine-deep disabled:opacity-60">
+        <button type="submit" disabled={status === 'sending'} className={`w-full rounded-full py-3 text-sm font-semibold disabled:opacity-60 ${compact ? 'bg-wine text-white' : 'bg-cream text-wine-deep'}`}>
           {status === 'sending' ? 'Wysyłam…' : 'Wyślij wiadomość'}
         </button>
       </div>

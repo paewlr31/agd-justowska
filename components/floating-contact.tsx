@@ -17,7 +17,7 @@ export function FloatingContact({ accessKey }: { accessKey: string }) {
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end" onMouseEnter={() => setOpen(true)} onMouseLeave={closeIfIdle}>
       {open ? (
-        <div className="mb-3 max-h-[min(32rem,calc(100vh-6rem))] w-[min(22rem,calc(100vw-2.5rem))] overflow-y-auto rounded-2xl bg-wine-deep p-5 text-cream shadow-xl">
+        <div className="mb-3 max-h-[min(32rem,calc(100vh-6rem))] w-[min(22rem,calc(100vw-2.5rem))] overflow-y-auto rounded-2xl border border-wine/15 bg-white p-5 text-wine-ink shadow-xl">
           <ContactForm accessKey={accessKey} compact />
         </div>
       ) : null}

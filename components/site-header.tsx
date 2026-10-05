@@ -15,13 +15,17 @@ function isActive(pathname: string, href: string) {
 export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
-  const [category, setCategory] = useState<string | null>(null)
-  const activeGroup = groups.find((group) => group.name === category) ?? null
+  const [category, setCategory] = useState<{ name: string; alignEnd: boolean } | null>(null)
 
   useEffect(() => {
     setOpen(false)
     setCategory(null)
   }, [pathname])
+
+  function openCategory(name: string, element: HTMLElement) {
+    const rect = element.getBoundingClientRect()
+    setCategory({ name, alignEnd: rect.left + 288 > window.innerWidth })
+  }
 
   return (
     <header className="sticky top-0 z-40 bg-wine-deep text-cream">
@@ -59,32 +63,36 @@ export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
         </button>
       </div>
 
-      <nav className="hidden border-t border-white/10 lg:block" aria-label="Kategorie produktów" onMouseLeave={() => setCategory(null)}>
+      <nav className="relative z-40 hidden border-t border-white/10 lg:block" aria-label="Kategorie produktów">
         <div className="mx-auto flex max-w-6xl flex-wrap gap-1 px-4 py-2">
           {groups.map((group) => (
-            <button
-              key={group.name}
-              type="button"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold ${category === group.name ? 'bg-white text-wine-deep' : 'text-cream hover:bg-white/10'}`}
-              aria-expanded={category === group.name}
-              onMouseEnter={() => setCategory(group.name)}
-              onClick={() => setCategory((current) => (current === group.name ? null : group.name))}
-            >
-              {group.name}
-            </button>
+            <div key={group.name} className="relative" onMouseLeave={() => setCategory((current) => (current?.name === group.name ? null : current))}>
+              <button
+                type="button"
+                className={`rounded-full px-3 py-1.5 text-sm font-semibold ${category?.name === group.name ? 'bg-white text-wine-deep' : 'text-cream hover:bg-white/10'}`}
+                aria-expanded={category?.name === group.name}
+                onMouseEnter={(event) => openCategory(group.name, event.currentTarget)}
+                onClick={(event) => {
+                  if (category?.name === group.name) setCategory(null)
+                  else openCategory(group.name, event.currentTarget)
+                }}
+              >
+                {group.name}
+              </button>
+              {category?.name === group.name ? (
+                <div className={`absolute top-full z-50 pt-1 ${category.alignEnd ? 'right-0' : 'left-0'}`}>
+                  <div className="max-h-80 w-72 overflow-y-auto rounded-xl bg-white py-2 text-wine-ink shadow-xl">
+                    {group.items.map((item) => (
+                      <Link key={item.id} href={item.href} className="block px-4 py-2 text-sm hover:bg-cream" onClick={() => setCategory(null)}>
+                        <span className="font-semibold">{item.brand}</span> {item.model}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </div>
           ))}
         </div>
-        {activeGroup ? (
-          <div className="border-t border-sand bg-white text-wine-ink">
-            <div className="mx-auto grid max-h-80 max-w-6xl gap-1 overflow-y-auto px-5 py-4 sm:grid-cols-2 lg:grid-cols-3">
-              {activeGroup.items.map((item) => (
-                <Link key={item.id} href={item.href} className="rounded-lg px-3 py-2 text-sm hover:bg-cream" onClick={() => setCategory(null)}>
-                  <span className="font-semibold">{item.brand}</span> {item.model}
-                </Link>
-              ))}
-            </div>
-          </div>
-        ) : null}
       </nav>
 
       {open ? (
