@@ -22,6 +22,14 @@ const offers = [
   { title: 'Meble i wykończenie', text: 'Polecamy sprawdzone firmy meblowe i wykonawców wykończenia pod klucz.' },
 ]
 
+function QuoteBand({ children }: { children: string }) {
+  return (
+    <section className="bg-white">
+      <p className="mx-auto max-w-4xl px-5 py-8 text-center font-serif text-2xl italic leading-snug text-wine-ink md:text-3xl">„{children}”</p>
+    </section>
+  )
+}
+
 export default function AboutPage() {
   return (
     <>
@@ -36,26 +44,28 @@ export default function AboutPage() {
             <p className="mt-4 text-sm text-cream/75">Piotr Pawlik · 27 lat w branży AGD</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/producenci" className="rounded-full bg-cream px-5 py-3 text-sm font-semibold text-wine-deep">
-                Zobacz producentów
+                Zobacz ofertę
               </Link>
               <Link href="/kontakt" className="rounded-full border border-cream/40 px-5 py-3 text-sm font-semibold text-cream">
                 Porozmawiajmy
               </Link>
             </div>
           </div>
-          <img
-            src="/media/home/hero.jpg"
-            alt="Pralka, suszarka, piekarnik i lodówka w zabudowie kuchennej"
-            className="aspect-[7/3] w-full min-w-0 max-w-full rounded-2xl object-cover lg:aspect-[16/10]"
-            fetchPriority="high"
-          />
+          <div className="grid min-w-0 grid-cols-2 overflow-hidden rounded-2xl bg-white">
+            <img src="/media/home/tata.jpg" alt="Piotr Pawlik" className="h-72 w-full object-cover object-top sm:h-[28rem]" fetchPriority="high" />
+            <img src="/media/home/firma.jpg" alt="Salon AGD Justowska przy ul. Królowej Jadwigi" className="h-72 w-full object-cover sm:h-[28rem]" />
+          </div>
         </div>
       </section>
+
+      <QuoteBand>
+        Nasza strona jest mobilna — przyjeżdżamy do klienta do domu i wybieramy ofertę dla ciebie.
+      </QuoteBand>
 
       <section className="mx-auto grid max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-wine">O firmie</p>
-          <h2 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">27 lat praktyki, jedna zasada.</h2>
+          <h2 className="mt-3 font-sans text-4xl font-semibold leading-tight tracking-tight md:text-5xl">27 lat praktyki, jedna zasada.</h2>
         </div>
         <div className="space-y-5 text-base leading-7 text-muted">
           {paragraphs.map((paragraph) => (
@@ -64,7 +74,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-4 px-5 pb-16 md:grid-cols-4">
+      <QuoteBand>
+        Zapraszamy do sklepu stacjonarnego, gdzie można zobaczyć na żywo podłączone urządzenia i technikę kuchenną różnych producentów. Mamy podpisaną umowę z firmą kurierską DPD i dostarczamy towar w każde miejsce w Polsce.
+      </QuoteBand>
+
+      <section className="mx-auto grid max-w-6xl gap-4 px-5 py-16 md:grid-cols-4">
         <img src="/media/home/hob.jpg" alt="Czarna płyta grzewcza z okapem w blacie" className="h-72 w-full rounded-2xl object-cover md:col-span-2 md:h-full" />
         <div className="grid gap-4 md:col-span-2">
           <img src="/media/home/ovens.jpg" alt="Zabudowa piekarników, mikrofal i chłodziarki do wina" className="h-40 w-full rounded-2xl object-cover" />

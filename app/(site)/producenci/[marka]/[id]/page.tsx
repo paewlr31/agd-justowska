@@ -35,7 +35,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <Link href={`/producenci?marka=${manufacturer.slug}`} className="font-semibold text-wine">{product.brand}</Link>
       </p>
       <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-        <div className="lg:sticky lg:top-24">
+        <div className="lg:sticky lg:top-52">
           <ProductGallery images={product.images} label={`${product.brand} ${product.model}`} />
         </div>
         <div className="min-w-0">

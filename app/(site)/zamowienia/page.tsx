@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { PhoneLink } from '@/components/contact-links'
 import { PageIntro } from '@/components/page-intro'
 import { company } from '@/lib/company'
 
@@ -11,7 +12,7 @@ const points = [
   {
     number: '01',
     title: 'Jak złożyć zamówienie',
-    text: 'Wybierz model w zakładce Producenci i skontaktuj się z nami telefonicznie, mailowo albo przyjdź do salonu. Potwierdzimy dostępność, cenę detaliczną i termin. Na stronie nie ma koszyka — zamówienie ustalamy bezpośrednio.',
+    text: 'Wybierz model w menu kategorii i skontaktuj się z nami telefonicznie, mailowo albo przyjdź do salonu. Potwierdzimy dostępność, cenę detaliczną i termin. Na stronie nie ma koszyka — zamówienie ustalamy bezpośrednio.',
   },
   {
     number: '02',
@@ -49,9 +50,7 @@ export default function OrdersPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sand">Masz pytanie?</p>
             <p className="mt-2 font-serif text-3xl">Zadzwoń, zanim cokolwiek zamówisz.</p>
           </div>
-          <a href={`tel:${company.phones[0].tel}`} className="text-lg font-semibold">
-            {company.phones[0].display}
-          </a>
+          <PhoneLink phone={company.phones[0]} className="text-lg font-semibold" />
         </div>
       </div>
     </>

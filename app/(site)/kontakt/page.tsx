@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { MailLink, PhoneLink } from '@/components/contact-links'
 import { ContactForm } from '@/components/contact-form'
 import { CopyAccount } from '@/components/copy-account'
 import { PageIntro } from '@/components/page-intro'
@@ -29,15 +30,11 @@ export default function ContactPage() {
           <div>
             {company.phones.map((phone) => (
               <p key={phone.tel}>
-                <a className="font-semibold text-wine" href={`tel:${phone.tel}`}>
-                  {phone.display}
-                </a>
+                <PhoneLink phone={phone} className="font-semibold text-wine" />
               </p>
             ))}
             <p>
-              <a className="font-semibold text-wine" href={`mailto:${company.email}`}>
-                {company.email}
-              </a>
+              <MailLink className="font-semibold text-wine" />
             </p>
           </div>
           <div>
