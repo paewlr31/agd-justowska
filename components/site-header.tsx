@@ -17,7 +17,9 @@ export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
   const [open, setOpen] = useState(false)
   const [category, setCategory] = useState<{ name: string; top: number; left: number } | null>(null)
   const [categoriesHidden, setCategoriesHidden] = useState(false)
+  const [categoriesExpanded, setCategoriesExpanded] = useState(false)
   const closeTimer = useRef<number | null>(null)
+  const scrollLock = useRef(false)
 
   useEffect(() => {
     setOpen(false)
@@ -28,14 +30,33 @@ export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
     let last = window.scrollY
     function onScroll() {
       const y = window.scrollY
-      const goingDown = y > last && y > 80
-      setCategoriesHidden(goingDown)
-      if (goingDown) setCategory(null)
+      if (scrollLock.current) {
+        last = y
+        return
+      }
+      if (y <= 12) {
+        setCategoriesHidden(false)
+        setCategoriesExpanded(false)
+        last = y
+        return
+      }
+      if (y > last + 8) {
+        setCategoriesHidden(true)
+        setCategoriesExpanded(false)
+        setCategory(null)
+        scrollLock.current = true
+        window.setTimeout(() => {
+          scrollLock.current = false
+          last = window.scrollY
+        }, 400)
+      }
       last = y
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const showCategories = !categoriesHidden || categoriesExpanded
 
   function cancelClose() {
     if (closeTimer.current) window.clearTimeout(closeTimer.current)
@@ -93,7 +114,7 @@ export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
       </div>
 
       <nav
-        className={`hidden overflow-hidden bg-[#f3e6df] text-wine-ink transition-[max-height] duration-300 lg:block ${categoriesHidden ? 'max-h-0' : 'max-h-56'}`}
+        className={`hidden overflow-hidden bg-[#f3e6df] text-wine-ink transition-[max-height] duration-300 lg:block ${showCategories ? 'max-h-56' : 'max-h-0'}`}
         aria-label="Kategorie produktów"
       >
         <div className="mx-auto flex max-w-6xl flex-wrap gap-1 px-4 py-2">
@@ -115,6 +136,13 @@ export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
           ))}
         </div>
       </nav>
+      {!showCategories ? (
+        <div className="hidden justify-center border-t border-white/10 bg-[#f3e6df] py-1.5 lg:flex">
+          <button type="button" className="text-sm font-semibold text-wine" onClick={() => setCategoriesExpanded(true)}>
+            Rozwiń kategorie
+          </button>
+        </div>
+      ) : null}
       {activeGroup && category ? (
         <div
           className="fixed z-50 w-72 pt-1"
