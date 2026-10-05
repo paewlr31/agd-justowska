@@ -1,8 +1,12 @@
+import { FloatingContact } from '@/components/floating-contact'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
+import { categoryMenus } from '@/lib/categories'
 import { company } from '@/lib/company'
+import { getCatalog } from '@/lib/store'
 
-export default function SiteLayout({ children }: { children: React.ReactNode }) {
+export default async function SiteLayout({ children }: { children: React.ReactNode }) {
+  const groups = categoryMenus(await getCatalog())
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Store',
@@ -24,11 +28,12 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <a href="#tresc" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-cream focus:px-4 focus:py-2">
         Przejdź do treści
       </a>
-      <SiteHeader />
+      <SiteHeader groups={groups} />
       <main id="tresc" className="flex-1">
         {children}
       </main>
       <SiteFooter />
+      <FloatingContact accessKey={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ''} />
     </div>
   )
 }

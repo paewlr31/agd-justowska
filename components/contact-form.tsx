@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from 'react'
 
-export function ContactForm({ accessKey }: { accessKey: string }) {
+export function ContactForm({ accessKey, compact = false }: { accessKey: string; compact?: boolean }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle')
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -44,9 +44,9 @@ export function ContactForm({ accessKey }: { accessKey: string }) {
 
   if (status === 'sent') {
     return (
-      <div className="rounded-3xl bg-wine-deep p-8 text-cream md:p-10">
-        <h2 className="font-serif text-4xl">Wysłano.</h2>
-        <button type="button" className="mt-6 text-sm font-semibold text-sand underline" onClick={() => setStatus('idle')}>
+      <div className={compact ? 'text-cream' : 'rounded-3xl bg-wine-deep p-8 text-cream md:p-10'}>
+        <h2 className={compact ? 'font-serif text-3xl' : 'font-serif text-4xl'}>Wysłano.</h2>
+        <button type="button" className="mt-4 text-sm font-semibold text-sand underline" onClick={() => setStatus('idle')}>
           Wyślij kolejną
         </button>
       </div>
@@ -54,9 +54,9 @@ export function ContactForm({ accessKey }: { accessKey: string }) {
   }
 
   return (
-    <form className="rounded-3xl bg-wine-deep p-8 text-cream md:p-10" onSubmit={onSubmit}>
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sand">Napisz do nas</p>
-      <h2 className="mt-3 font-serif text-4xl">Opowiedz, czego szukasz.</h2>
+    <form className={compact ? 'text-cream' : 'rounded-3xl bg-wine-deep p-8 text-cream md:p-10'} onSubmit={onSubmit}>
+      {compact ? null : <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sand">Napisz do nas</p>}
+      <h2 className={compact ? 'font-serif text-3xl' : 'mt-3 font-serif text-4xl'}>{compact ? 'Napisz do nas' : 'Opowiedz, czego szukasz.'}</h2>
       <input type="text" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
       <div className="mt-8 space-y-5">
         <label className="block text-sm text-cream/70">
@@ -73,7 +73,7 @@ export function ContactForm({ accessKey }: { accessKey: string }) {
         </label>
         <label className="block text-sm text-cream/70">
           Wiadomość
-          <textarea name="message" required className="dark-field min-h-32 resize-y" placeholder="Marka, model albo czego potrzebuje kuchnia." />
+          <textarea name="message" required className={`dark-field resize-y ${compact ? 'min-h-20' : 'min-h-32'}`} placeholder="Marka, model albo czego potrzebuje kuchnia." />
         </label>
         <button type="submit" disabled={status === 'sending'} className="w-full rounded-full bg-cream py-3 text-sm font-semibold text-wine-deep disabled:opacity-60">
           {status === 'sending' ? 'Wysyłam…' : 'Wyślij wiadomość'}
