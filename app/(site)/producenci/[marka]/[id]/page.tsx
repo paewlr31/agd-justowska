@@ -40,7 +40,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         </div>
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-wine">{product.category}</p>
-          <h1 className="mt-2 font-serif text-5xl leading-none">{product.model}</h1>
+          <h1 className="mt-2 font-sans text-4xl font-semibold leading-none tracking-tight md:text-5xl">{product.model}</h1>
           <p className="mt-3 text-lg text-muted">{product.brand}</p>
           <div className="mt-6 flex flex-wrap items-end gap-6">
             <div>

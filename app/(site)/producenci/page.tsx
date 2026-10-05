@@ -31,8 +31,13 @@ export default async function OfferPage() {
             <ul className="mt-4 divide-y divide-sand">
               {group.items.map((item) => (
                 <li key={item.id}>
-                  <Link href={item.href} className="flex flex-col gap-1 py-4 sm:flex-row sm:items-center sm:justify-between">
-                    <span>
+                  <Link href={item.href} className="flex items-center gap-4 py-3">
+                    {item.image ? (
+                      <img src={item.image} alt="" className="size-16 shrink-0 rounded-lg bg-sand object-contain" />
+                    ) : (
+                      <span className="size-16 shrink-0 rounded-lg bg-sand" aria-hidden />
+                    )}
+                    <span className="min-w-0 flex-1">
                       <span className="font-semibold">{item.brand}</span> {item.model}
                     </span>
                     <span className="text-sm font-semibold text-wine">{formatPrice(priceById.get(item.id) ?? null)}</span>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { PhoneLink } from '@/components/contact-links'
 import type { CategoryMenu } from '@/lib/categories'
 import { company, nav } from '@/lib/company'
@@ -15,17 +15,46 @@ function isActive(pathname: string, href: string) {
 export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
-  const [category, setCategory] = useState<{ name: string; alignEnd: boolean } | null>(null)
+  const [category, setCategory] = useState<{ name: string; top: number; left: number } | null>(null)
+  const [categoriesHidden, setCategoriesHidden] = useState(false)
+  const closeTimer = useRef<number | null>(null)
 
   useEffect(() => {
     setOpen(false)
     setCategory(null)
   }, [pathname])
 
-  function openCategory(name: string, element: HTMLElement) {
-    const rect = element.getBoundingClientRect()
-    setCategory({ name, alignEnd: rect.left + 288 > window.innerWidth })
+  useEffect(() => {
+    let last = window.scrollY
+    function onScroll() {
+      const y = window.scrollY
+      const goingDown = y > last && y > 80
+      setCategoriesHidden(goingDown)
+      if (goingDown) setCategory(null)
+      last = y
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  function cancelClose() {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current)
   }
+
+  function scheduleClose() {
+    cancelClose()
+    closeTimer.current = window.setTimeout(() => setCategory(null), 120)
+  }
+
+  function openCategory(name: string, element: HTMLElement) {
+    cancelClose()
+    const rect = element.getBoundingClientRect()
+    const width = 288
+    const left = rect.left + width > window.innerWidth ? Math.max(8, rect.right - width) : rect.left
+    setCategory({ name, top: rect.bottom, left })
+  }
+
+  const activeGroup = groups.find((group) => group.name === category?.name) ?? null
 
   return (
     <header className="sticky top-0 z-40 bg-wine-deep text-cream">
@@ -63,37 +92,48 @@ export function SiteHeader({ groups }: { groups: CategoryMenu[] }) {
         </button>
       </div>
 
-      <nav className="relative z-40 hidden border-t border-white/10 lg:block" aria-label="Kategorie produktów">
+      <nav
+        className={`hidden overflow-hidden bg-[#f3e6df] text-wine-ink transition-[max-height] duration-300 lg:block ${categoriesHidden ? 'max-h-0' : 'max-h-56'}`}
+        aria-label="Kategorie produktów"
+      >
         <div className="mx-auto flex max-w-6xl flex-wrap gap-1 px-4 py-2">
           {groups.map((group) => (
-            <div key={group.name} className="relative" onMouseLeave={() => setCategory((current) => (current?.name === group.name ? null : current))}>
-              <button
-                type="button"
-                className={`rounded-full px-3 py-1.5 text-sm font-semibold ${category?.name === group.name ? 'bg-white text-wine-deep' : 'text-cream hover:bg-white/10'}`}
-                aria-expanded={category?.name === group.name}
-                onMouseEnter={(event) => openCategory(group.name, event.currentTarget)}
-                onClick={(event) => {
-                  if (category?.name === group.name) setCategory(null)
-                  else openCategory(group.name, event.currentTarget)
-                }}
-              >
-                {group.name}
-              </button>
-              {category?.name === group.name ? (
-                <div className={`absolute top-full z-50 pt-1 ${category.alignEnd ? 'right-0' : 'left-0'}`}>
-                  <div className="max-h-80 w-72 overflow-y-auto rounded-xl bg-white py-2 text-wine-ink shadow-xl">
-                    {group.items.map((item) => (
-                      <Link key={item.id} href={item.href} className="block px-4 py-2 text-sm hover:bg-cream" onClick={() => setCategory(null)}>
-                        <span className="font-semibold">{item.brand}</span> {item.model}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-            </div>
+            <button
+              key={group.name}
+              type="button"
+              className={`rounded-full px-3 py-1.5 text-sm font-semibold ${category?.name === group.name ? 'bg-wine text-white' : 'text-wine-ink hover:bg-white'}`}
+              aria-expanded={category?.name === group.name}
+              onMouseEnter={(event) => openCategory(group.name, event.currentTarget)}
+              onMouseLeave={scheduleClose}
+              onClick={(event) => {
+                if (category?.name === group.name) setCategory(null)
+                else openCategory(group.name, event.currentTarget)
+              }}
+            >
+              {group.name}
+            </button>
           ))}
         </div>
       </nav>
+      {activeGroup && category ? (
+        <div
+          className="fixed z-50 w-72 pt-1"
+          style={{ top: category.top, left: category.left }}
+          onMouseEnter={cancelClose}
+          onMouseLeave={scheduleClose}
+        >
+          <div className="max-h-80 overflow-y-auto rounded-xl bg-white py-2 text-wine-ink shadow-xl">
+            {activeGroup.items.map((item) => (
+              <Link key={item.id} href={item.href} className="flex items-center gap-3 px-3 py-2 text-sm hover:bg-cream" onClick={() => setCategory(null)}>
+                {item.image ? <img src={item.image} alt="" className="size-10 shrink-0 rounded-md bg-sand object-contain" /> : <span className="size-10 shrink-0 rounded-md bg-sand" aria-hidden />}
+                <span>
+                  <span className="font-semibold">{item.brand}</span> {item.model}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       {open ? (
         <nav id="menu-mobilne" className="max-h-[70vh] overflow-y-auto border-t border-white/10 px-5 py-4 lg:hidden" aria-label="Menu mobilne">

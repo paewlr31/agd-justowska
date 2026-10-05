@@ -5,6 +5,7 @@ export type CategoryMenuItem = {
   brand: string
   model: string
   href: string
+  image: string | null
 }
 
 export type CategoryMenu = {
@@ -25,6 +26,7 @@ export function categoryMenus(catalog: Catalog): CategoryMenu[] {
       brand: product.brand,
       model: product.model,
       href: `/producenci/${slug}/${product.id}`,
+      image: product.image,
     })
     groups.set(product.category, items)
   }
