@@ -87,6 +87,15 @@ export default function AboutPage() {
             <img src="/media/home/sink.jpg" alt="Czarny zlewozmywak granitowy z baterią" className="h-44 w-full rounded-2xl object-cover" />
           </div>
         </div>
+        {Array.from({ length: 14 }, (_, index) => (
+          <img
+            key={index}
+            src={`/media/home/stock/${String(index + 1).padStart(2, '0')}.jpg`}
+            alt="Zdjęcie sprzętu i wnętrza kuchennego"
+            className="h-56 w-full rounded-2xl object-cover sm:h-64"
+            loading="lazy"
+          />
+        ))}
       </section>
 
       <section className="bg-wine text-cream">
