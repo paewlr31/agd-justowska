@@ -38,3 +38,25 @@ export function categoryMenus(catalog: Catalog): CategoryMenu[] {
       items: items.sort((a, b) => a.brand.localeCompare(b.brand, 'pl') || a.model.localeCompare(b.model, 'pl')),
     }))
 }
+
+export type Department = {
+  name: string
+  groups: CategoryMenu[]
+}
+
+export function departments(groups: CategoryMenu[]): Department[] {
+  const agd: CategoryMenu[] = []
+  const hoods: CategoryMenu[] = []
+  const kitchen: CategoryMenu[] = []
+  for (const group of groups) {
+    const name = group.name.toLocaleLowerCase('pl')
+    if (name.includes('okap')) hoods.push(group)
+    else if (name.includes('zlew') || name.includes('bateria')) kitchen.push(group)
+    else agd.push(group)
+  }
+  return [
+    { name: 'Sprzęt AGD', groups: agd },
+    { name: 'Okapy', groups: hoods },
+    { name: 'Technika kuchenna', groups: kitchen },
+  ].filter((department) => department.groups.length > 0)
+}

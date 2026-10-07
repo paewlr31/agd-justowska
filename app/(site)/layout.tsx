@@ -29,7 +29,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         Przejdź do treści
       </a>
       <SiteHeader groups={groups} />
-      <main id="tresc" className="flex-1">
+      <main id="tresc" className="flex-1 pb-28">
         {children}
       </main>
       <SiteFooter />
