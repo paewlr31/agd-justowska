@@ -21,12 +21,23 @@ export function OfferCatalog({ groups, brands }: { groups: CategoryMenu[]; brand
     <div className="mx-auto max-w-6xl px-5 py-8">
       <div className="rounded-2xl bg-white p-4">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-wine">Marka</p>
-        <div className="mt-3 flex gap-2 overflow-x-auto pb-1 md:flex-wrap md:overflow-visible">
+        <label className="mt-3 block text-sm font-medium md:hidden">
+          Wybierz markę
+          <select className="field" value={brand ?? ''} onChange={(event) => setBrand(event.target.value || null)}>
+            <option value="">Wszystkie marki</option>
+            {brands.map((name) => (
+              <option key={name} value={name}>
+                {name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <div className="mt-3 hidden gap-2 md:flex md:flex-wrap">
           <button type="button" aria-pressed={brand === null} onClick={() => setBrand(null)} className={chip(brand === null)}>
             Wszystkie
           </button>
           {brands.map((name) => (
-            <button key={name} type="button" aria-pressed={brand === name} onClick={() => setBrand(name)} className={`${chip(brand === name)} shrink-0`}>
+            <button key={name} type="button" aria-pressed={brand === name} onClick={() => setBrand(name)} className={chip(brand === name)}>
               {name}
             </button>
           ))}
