@@ -14,8 +14,8 @@ const paragraphs = [
 const gains = [
   { title: 'Zero przypadkowych produktów', text: 'Ofertę opieramy wyłącznie na sprawdzonych markach, których mocne i słabe strony znamy z praktyki. Polecamy tylko to, do czego mamy absolutne przekonanie.' },
   { title: 'Kompletny projekt kuchni', text: 'Nie sprzedajemy pojedynczych pudełek. Łączymy AGD do zabudowy z techniką kuchenną — zlewozmywakami i bateriami — oraz blatami ze spieków, konglomeratów i kamienia naturalnego.' },
-  { title: 'Salon albo spotkanie na budowie', text: 'Zapraszamy do salonu przy ul. Królowej Jadwigi w Krakowie, gdzie zobaczysz podłączony sprzęt na żywo. Oferujemy też dojazd i konsultację bezpośrednio u Ciebie w domu.' },
-  { title: 'Wsparcie wykonawcze', text: 'Mamy w portfolio sprawdzone firmy meblowe i ekipy wykończeniowe. Jeśli potrzebujesz, poprowadzimy realizację od stanu deweloperskiego pod klucz. Dostarczamy sprzęt na miejsce, na terenie całej Polski.' },
+  { title: 'Elastyczność (salon lub spotkanie na budowie)', text: 'Zapraszamy do salonu przy ul. Królowej Jadwigi w Krakowie, gdzie zobaczysz podłączony sprzęt na żywo. Oferujemy również dojazd i konsultację bezpośrednio u Ciebie w domu – tam, gdzie faktycznie powstaje projekt.' },
+  { title: 'Wsparcie wykonawcze', text: 'Mamy w portfolio sprawdzone firmy meblowe i ekipy wykończeniowe. Jeśli potrzebujesz, poprowadzimy realizację Twojego wnętrza od stanu deweloperskiego pod klucz. Dostarczamy sprzęt na miejsce, na terenie całej Polski.' },
 ]
 
 function QuoteBand({ children }: { children: string }) {
