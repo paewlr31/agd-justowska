@@ -9,6 +9,14 @@ import type { Catalog, Product } from '@/lib/types'
 
 type Mode = 'local' | 'supabase'
 
+function swapPhotos(photos: string[], from: number, to: number) {
+  if (to < 0 || to >= photos.length) return photos
+  const next = [...photos]
+  const [moved] = next.splice(from, 1)
+  next.splice(to, 0, moved)
+  return next
+}
+
 export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
   const router = useRouter()
   const [catalog, setCatalog] = useState(initial)
@@ -25,6 +33,7 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
   const [energyClass, setEnergyClass] = useState('')
   const [fileKey, setFileKey] = useState(0)
   const [editing, setEditing] = useState<Product | null>(null)
+  const [photoOrder, setPhotoOrder] = useState<string[]>([])
   const [notice, setNotice] = useState('')
   const [error, setError] = useState('')
   const [pending, setPending] = useState(false)
@@ -118,6 +127,7 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
     const saved = await request(`/api/products/${editing.id}`, { method: 'PATCH', body: form })
     if (!saved) return
     setEditing(null)
+    setPhotoOrder([])
     setNotice('Zapisano zmiany.')
   }
 
@@ -320,14 +330,29 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
                           Opis
                           <textarea name="description" className="field min-h-36" defaultValue={product.description} />
                         </label>
-                        {product.images.length > 0 ? (
-                          <div className="grid grid-cols-3 gap-3 md:col-span-2">
-                            {product.images.map((image) => (
-                              <label key={image} className="text-xs font-semibold text-wine">
-                                <img src={image} alt="" className="aspect-[4/3] w-full rounded-xl bg-sand object-contain" />
-                                <span className="mt-1 flex items-center gap-2"><input type="checkbox" name="removeImages" value={image} /> Usuń</span>
-                              </label>
-                            ))}
+                        {photoOrder.length > 0 ? (
+                          <div className="md:col-span-2">
+                            <p className="text-sm text-muted">Pierwsze zdjęcie jest główne. Strzałkami zmieniasz kolejność, potem kliknij Zapisz.</p>
+                            <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                              {photoOrder.map((image, index) => (
+                                <div key={image} className="text-xs font-semibold text-wine">
+                                  <input type="hidden" name="imageOrder" value={image} />
+                                  <img src={image} alt="" className="aspect-[4/3] w-full rounded-xl bg-sand object-contain" />
+                                  <p className="mt-1">{index === 0 ? 'Główne' : `Zdjęcie ${index + 1}`}</p>
+                                  <div className="mt-1 flex gap-2">
+                                    <button type="button" className="rounded-full border border-wine/20 px-2 py-1 disabled:opacity-30" disabled={index === 0} onClick={() => setPhotoOrder((current) => swapPhotos(current, index, index - 1))}>
+                                      ←
+                                    </button>
+                                    <button type="button" className="rounded-full border border-wine/20 px-2 py-1 disabled:opacity-30" disabled={index === photoOrder.length - 1} onClick={() => setPhotoOrder((current) => swapPhotos(current, index, index + 1))}>
+                                      →
+                                    </button>
+                                  </div>
+                                  <label className="mt-1 flex items-center gap-2">
+                                    <input type="checkbox" name="removeImages" value={image} /> Usuń
+                                  </label>
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         ) : null}
                         <label className="text-sm font-medium">
@@ -367,7 +392,7 @@ export function PanelApp({ initial, mode }: { initial: Catalog; mode: Mode }) {
                           </p>
                         </div>
                         <div className="flex gap-3">
-                          <button type="button" className="text-sm font-semibold text-wine" onClick={() => setEditing(product)}>
+                          <button type="button" className="text-sm font-semibold text-wine" onClick={() => { setEditing(product); setPhotoOrder(product.images) }}>
                             Edytuj
                           </button>
                           <button type="button" className="text-sm font-semibold text-wine" onClick={() => removeProduct(product)}>

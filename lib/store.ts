@@ -390,7 +390,9 @@ export async function addProduct(input: ProductInput) {
 }
 
 async function saveProduct(current: Product, input: ProductInput) {
-  const images = current.images.filter((url) => !input.removeImages.includes(url))
+  const kept = current.images.filter((url) => !input.removeImages.includes(url))
+  const rank = new Map(input.imageOrder.map((url, index) => [url, index]))
+  const images = [...kept].sort((a, b) => (rank.get(a) ?? 9999) - (rank.get(b) ?? 9999))
   const files = current.files.filter((file) => !input.removeFiles.includes(file.url))
   const added: string[] = []
   const imageCount = images.length

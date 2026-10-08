@@ -56,6 +56,7 @@ export async function productInputFromForm(form: FormData): Promise<ProductInput
     energyClass: parseEnergyClass(String(form.get('energyClass') ?? '')),
     images: await readUploads(form, 'images'),
     files: await readUploads(form, 'files'),
+    imageOrder: form.getAll('imageOrder').map(String),
     removeImages: form.getAll('removeImages').map(String),
     removeFiles: form.getAll('removeFiles').map(String),
   }

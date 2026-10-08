@@ -54,6 +54,7 @@ export type ProductInput = {
   energyClass: string | null
   images: UploadedImage[]
   files: UploadedImage[]
+  imageOrder: string[]
   removeImages: string[]
   removeFiles: string[]
 }
