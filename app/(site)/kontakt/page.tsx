@@ -38,6 +38,11 @@ export default function ContactPage() {
             </p>
           </div>
           <div>
+            <p className="font-semibold text-wine-ink">Godziny otwarcia:</p>
+            <p>Pon-Pt: 10-18</p>
+            <p>Sb 9-13</p>
+          </div>
+          <div>
             <p>NIP {company.nip}</p>
             <p>REGON {company.regon}</p>
             <p className="mt-3 font-semibold text-wine-ink">{company.bank}</p>
