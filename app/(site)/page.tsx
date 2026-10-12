@@ -48,7 +48,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="grid min-w-0 grid-cols-1 gap-4 overflow-hidden rounded-2xl md:grid-cols-2 md:gap-0 md:bg-white">
-            <img src="/media/home/tata.jpg" alt="Piotr Pawlik" className="h-80 w-full rounded-2xl object-cover object-top md:h-[28rem] md:rounded-none" fetchPriority="high" />
+            <img src="/media/home/tata.jpg" alt="Piotr Pawlik w salonie przy piekarnikach" className="h-80 w-full rounded-2xl object-cover object-top md:h-[28rem] md:rounded-none" fetchPriority="high" />
             <img src="/media/home/ovens.jpg" alt="Zabudowa piekarników i sprzętu kuchennego" className="h-80 w-full rounded-2xl object-cover md:h-[28rem] md:rounded-none" />
           </div>
         </div>
